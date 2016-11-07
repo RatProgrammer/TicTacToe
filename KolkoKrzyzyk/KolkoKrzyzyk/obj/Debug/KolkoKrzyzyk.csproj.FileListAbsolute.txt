@@ -26,3 +26,6 @@ C:\Users\Aleksanra\Desktop\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.cspr
 C:\Users\Aleksanra\Desktop\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.TicTacToe.resources
 C:\Users\Aleksanra\Desktop\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.Properties.Resources.resources
 C:\Users\Aleksanra\Desktop\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.csproj.GenerateResource.Cache
+C:\Users\Katarzyna\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\bin\Debug\KolkoKrzyzyk.exe.config
+C:\Users\Katarzyna\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.exe
+C:\Users\Katarzyna\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.pdb

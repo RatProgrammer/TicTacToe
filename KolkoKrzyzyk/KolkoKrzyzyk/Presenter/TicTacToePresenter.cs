@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Windows.Forms;
 using KolkoKrzyzyk.Model.DrawModel;
 using KolkoKrzyzyk.View;
 
@@ -29,14 +30,20 @@ namespace KolkoKrzyzyk.Presenter
 
         private void ExecuteMovePaintAction(Point point, CanvasType canvasType)
         {
-            _myPen.ExecuteStop(ref _currentBitmap, point);
+            _myPen.ExecuteMove(ref _currentBitmap, point);
             _ticTacToe.UpdateCanvas(canvasType, _currentBitmap);
         }
 
         private void ExecuteStartPaintAction(Point point, CanvasType canvasType)
         {
-            _myPen.ExecuteStop(ref _currentBitmap, point);
+            _myPen.ExecuteStart(ref _currentBitmap, point);
             _ticTacToe.UpdateCanvas(canvasType, _currentBitmap);
+        }
+           public void RunApp()
+        {
+            Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(_ticTacToe);
         }
     }
 }

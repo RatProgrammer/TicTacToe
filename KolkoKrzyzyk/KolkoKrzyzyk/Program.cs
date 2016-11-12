@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KolkoKrzyzyk.Presenter;
 
 namespace KolkoKrzyzyk
 {
@@ -14,9 +15,9 @@ namespace KolkoKrzyzyk
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TicTacToe());
+            TicTacToe ticTacToe = new TicTacToe();
+            TicTacToePresenter ticTacToePresenter = new TicTacToePresenter(ticTacToe);
+            ticTacToePresenter.RunApp();
         }
     }
 }

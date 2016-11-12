@@ -1,14 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
+using KolkoKrzyzyk.Model.DrawModel;
+using KolkoKrzyzyk.View;
 
 namespace KolkoKrzyzyk.Presenter
 {
     class TicTacToePresenter
     {
         private TicTacToe _ticTacToe;
-        
+        private MyPen _myPen;
+        private Bitmap _currentBitmap;
+
+        public TicTacToePresenter(TicTacToe ticTacToe)
+        {
+            _ticTacToe = ticTacToe;
+            _currentBitmap = new Bitmap(100,100);
+            _myPen = new MyPen();
+            _ticTacToe.StartPaintAction += ExecuteStartPaintAction;
+            _ticTacToe.MovePaintAction += ExecuteMovePaintAction;
+            _ticTacToe.StopPaintAction += ExecuteStopPaintAction;
+        }
+
+        private void ExecuteStopPaintAction(Point point, CanvasType canvasType)
+        { 
+           _myPen.ExecuteStop(ref _currentBitmap, point);
+            _ticTacToe.UpdateCanvas(canvasType,_currentBitmap);
+        }
+
+        private void ExecuteMovePaintAction(Point point, CanvasType canvasType)
+        {
+            _myPen.ExecuteStop(ref _currentBitmap, point);
+            _ticTacToe.UpdateCanvas(canvasType, _currentBitmap);
+        }
+
+        private void ExecuteStartPaintAction(Point point, CanvasType canvasType)
+        {
+            _myPen.ExecuteStop(ref _currentBitmap, point);
+            _ticTacToe.UpdateCanvas(canvasType, _currentBitmap);
+        }
     }
 }

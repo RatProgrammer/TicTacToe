@@ -30,14 +30,15 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pbPole9 = new System.Windows.Forms.PictureBox();
-            this.pbPole8 = new System.Windows.Forms.PictureBox();
-            this.pbPole7 = new System.Windows.Forms.PictureBox();
-            this.pbPole6 = new System.Windows.Forms.PictureBox();
-            this.pbPole5 = new System.Windows.Forms.PictureBox();
-            this.pbPole4 = new System.Windows.Forms.PictureBox();
-            this.pbPole3 = new System.Windows.Forms.PictureBox();
-            this.pbPole2 = new System.Windows.Forms.PictureBox();
+            this.cCMatrixEl9 = new KolkoKrzyzyk.View.CanvasControl();
+            this.cCMatrixEl8 = new KolkoKrzyzyk.View.CanvasControl();
+            this.cCMatrixEl7 = new KolkoKrzyzyk.View.CanvasControl();
+            this.cCMatrixEl6 = new KolkoKrzyzyk.View.CanvasControl();
+            this.cCMatrixEl5 = new KolkoKrzyzyk.View.CanvasControl();
+            this.cCMatrixEl4 = new KolkoKrzyzyk.View.CanvasControl();
+            this.cCMatrixEl3 = new KolkoKrzyzyk.View.CanvasControl();
+            this.cCMatrixEl2 = new KolkoKrzyzyk.View.CanvasControl();
+            this.cCMatrixEl1 = new KolkoKrzyzyk.View.CanvasControl();
             this.btnNowaGra = new System.Windows.Forms.Button();
             this.btnCofnij = new System.Windows.Forms.Button();
             this.btnGraj = new System.Windows.Forms.Button();
@@ -57,11 +58,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.progressBLearning = new System.Windows.Forms.ProgressBar();
-            this.pbRezultat = new System.Windows.Forms.PictureBox();
-            this.pbTestowanie = new System.Windows.Forms.PictureBox();
-            this.pbPusty = new System.Windows.Forms.PictureBox();
-            this.pbKolko = new System.Windows.Forms.PictureBox();
-            this.pbKrzyzyk = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblWyjscieKrzyzyk = new System.Windows.Forms.Label();
@@ -80,25 +76,29 @@
             this.lblRezultat = new System.Windows.Forms.Label();
             this.lblTestowanie = new System.Windows.Forms.Label();
             this.lblNaukaWzorow = new System.Windows.Forms.Label();
-            this.pbPole1 = new System.Windows.Forms.PictureBox();
+            this.cCX = new KolkoKrzyzyk.View.CanvasControl();
+            this.cCO = new KolkoKrzyzyk.View.CanvasControl();
+            this.cCBlank = new KolkoKrzyzyk.View.CanvasControl();
+            this.cCTest = new KolkoKrzyzyk.View.CanvasControl();
+            this.cCResult = new KolkoKrzyzyk.View.CanvasControl();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbRezultat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTestowanie)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPusty)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbKolko)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbKrzyzyk)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCO)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCBlank)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCTest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCResult)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -115,15 +115,15 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Gainsboro;
-            this.tabPage1.Controls.Add(this.pbPole1);
-            this.tabPage1.Controls.Add(this.pbPole9);
-            this.tabPage1.Controls.Add(this.pbPole8);
-            this.tabPage1.Controls.Add(this.pbPole7);
-            this.tabPage1.Controls.Add(this.pbPole6);
-            this.tabPage1.Controls.Add(this.pbPole5);
-            this.tabPage1.Controls.Add(this.pbPole4);
-            this.tabPage1.Controls.Add(this.pbPole3);
-            this.tabPage1.Controls.Add(this.pbPole2);
+            this.tabPage1.Controls.Add(this.cCMatrixEl9);
+            this.tabPage1.Controls.Add(this.cCMatrixEl8);
+            this.tabPage1.Controls.Add(this.cCMatrixEl7);
+            this.tabPage1.Controls.Add(this.cCMatrixEl6);
+            this.tabPage1.Controls.Add(this.cCMatrixEl5);
+            this.tabPage1.Controls.Add(this.cCMatrixEl4);
+            this.tabPage1.Controls.Add(this.cCMatrixEl3);
+            this.tabPage1.Controls.Add(this.cCMatrixEl2);
+            this.tabPage1.Controls.Add(this.cCMatrixEl1);
             this.tabPage1.Controls.Add(this.btnNowaGra);
             this.tabPage1.Controls.Add(this.btnCofnij);
             this.tabPage1.Controls.Add(this.btnGraj);
@@ -137,77 +137,86 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "GRA";
             // 
-            // pbPole9
+            // cCMatrixEl9
             // 
-            this.pbPole9.BackColor = System.Drawing.Color.White;
-            this.pbPole9.Location = new System.Drawing.Point(321, 273);
-            this.pbPole9.Name = "pbPole9";
-            this.pbPole9.Size = new System.Drawing.Size(100, 100);
-            this.pbPole9.TabIndex = 22;
-            this.pbPole9.TabStop = false;
+            this.cCMatrixEl9.BackColor = System.Drawing.Color.White;
+            this.cCMatrixEl9.Location = new System.Drawing.Point(308, 273);
+            this.cCMatrixEl9.Name = "cCMatrixEl9";
+            this.cCMatrixEl9.Size = new System.Drawing.Size(100, 100);
+            this.cCMatrixEl9.TabIndex = 22;
+            this.cCMatrixEl9.TabStop = false;
             // 
-            // pbPole8
+            // cCMatrixEl8
             // 
-            this.pbPole8.BackColor = System.Drawing.Color.White;
-            this.pbPole8.Location = new System.Drawing.Point(191, 273);
-            this.pbPole8.Name = "pbPole8";
-            this.pbPole8.Size = new System.Drawing.Size(100, 100);
-            this.pbPole8.TabIndex = 21;
-            this.pbPole8.TabStop = false;
+            this.cCMatrixEl8.BackColor = System.Drawing.Color.White;
+            this.cCMatrixEl8.Location = new System.Drawing.Point(187, 273);
+            this.cCMatrixEl8.Name = "cCMatrixEl8";
+            this.cCMatrixEl8.Size = new System.Drawing.Size(100, 100);
+            this.cCMatrixEl8.TabIndex = 21;
+            this.cCMatrixEl8.TabStop = false;
             // 
-            // pbPole7
+            // cCMatrixEl7
             // 
-            this.pbPole7.BackColor = System.Drawing.Color.White;
-            this.pbPole7.Location = new System.Drawing.Point(64, 273);
-            this.pbPole7.Name = "pbPole7";
-            this.pbPole7.Size = new System.Drawing.Size(100, 100);
-            this.pbPole7.TabIndex = 20;
-            this.pbPole7.TabStop = false;
+            this.cCMatrixEl7.BackColor = System.Drawing.Color.White;
+            this.cCMatrixEl7.Location = new System.Drawing.Point(63, 273);
+            this.cCMatrixEl7.Name = "cCMatrixEl7";
+            this.cCMatrixEl7.Size = new System.Drawing.Size(100, 100);
+            this.cCMatrixEl7.TabIndex = 20;
+            this.cCMatrixEl7.TabStop = false;
             // 
-            // pbPole6
+            // cCMatrixEl6
             // 
-            this.pbPole6.BackColor = System.Drawing.Color.White;
-            this.pbPole6.Location = new System.Drawing.Point(321, 167);
-            this.pbPole6.Name = "pbPole6";
-            this.pbPole6.Size = new System.Drawing.Size(100, 100);
-            this.pbPole6.TabIndex = 19;
-            this.pbPole6.TabStop = false;
+            this.cCMatrixEl6.BackColor = System.Drawing.Color.White;
+            this.cCMatrixEl6.Location = new System.Drawing.Point(308, 167);
+            this.cCMatrixEl6.Name = "cCMatrixEl6";
+            this.cCMatrixEl6.Size = new System.Drawing.Size(100, 100);
+            this.cCMatrixEl6.TabIndex = 19;
+            this.cCMatrixEl6.TabStop = false;
             // 
-            // pbPole5
+            // cCMatrixEl5
             // 
-            this.pbPole5.BackColor = System.Drawing.Color.White;
-            this.pbPole5.Location = new System.Drawing.Point(191, 167);
-            this.pbPole5.Name = "pbPole5";
-            this.pbPole5.Size = new System.Drawing.Size(100, 100);
-            this.pbPole5.TabIndex = 18;
-            this.pbPole5.TabStop = false;
+            this.cCMatrixEl5.BackColor = System.Drawing.Color.White;
+            this.cCMatrixEl5.Location = new System.Drawing.Point(187, 167);
+            this.cCMatrixEl5.Name = "cCMatrixEl5";
+            this.cCMatrixEl5.Size = new System.Drawing.Size(100, 100);
+            this.cCMatrixEl5.TabIndex = 18;
+            this.cCMatrixEl5.TabStop = false;
             // 
-            // pbPole4
+            // cCMatrixEl4
             // 
-            this.pbPole4.BackColor = System.Drawing.Color.White;
-            this.pbPole4.Location = new System.Drawing.Point(64, 167);
-            this.pbPole4.Name = "pbPole4";
-            this.pbPole4.Size = new System.Drawing.Size(100, 100);
-            this.pbPole4.TabIndex = 17;
-            this.pbPole4.TabStop = false;
+            this.cCMatrixEl4.BackColor = System.Drawing.Color.White;
+            this.cCMatrixEl4.Location = new System.Drawing.Point(63, 167);
+            this.cCMatrixEl4.Name = "cCMatrixEl4";
+            this.cCMatrixEl4.Size = new System.Drawing.Size(100, 100);
+            this.cCMatrixEl4.TabIndex = 17;
+            this.cCMatrixEl4.TabStop = false;
             // 
-            // pbPole3
+            // cCMatrixEl3
             // 
-            this.pbPole3.BackColor = System.Drawing.Color.White;
-            this.pbPole3.Location = new System.Drawing.Point(321, 61);
-            this.pbPole3.Name = "pbPole3";
-            this.pbPole3.Size = new System.Drawing.Size(100, 100);
-            this.pbPole3.TabIndex = 16;
-            this.pbPole3.TabStop = false;
+            this.cCMatrixEl3.BackColor = System.Drawing.Color.White;
+            this.cCMatrixEl3.Location = new System.Drawing.Point(308, 61);
+            this.cCMatrixEl3.Name = "cCMatrixEl3";
+            this.cCMatrixEl3.Size = new System.Drawing.Size(100, 100);
+            this.cCMatrixEl3.TabIndex = 16;
+            this.cCMatrixEl3.TabStop = false;
             // 
-            // pbPole2
+            // cCMatrixEl2
             // 
-            this.pbPole2.BackColor = System.Drawing.Color.White;
-            this.pbPole2.Location = new System.Drawing.Point(191, 61);
-            this.pbPole2.Name = "pbPole2";
-            this.pbPole2.Size = new System.Drawing.Size(100, 100);
-            this.pbPole2.TabIndex = 15;
-            this.pbPole2.TabStop = false;
+            this.cCMatrixEl2.BackColor = System.Drawing.Color.White;
+            this.cCMatrixEl2.Location = new System.Drawing.Point(187, 61);
+            this.cCMatrixEl2.Name = "cCMatrixEl2";
+            this.cCMatrixEl2.Size = new System.Drawing.Size(100, 100);
+            this.cCMatrixEl2.TabIndex = 15;
+            this.cCMatrixEl2.TabStop = false;
+            // 
+            // cCMatrixEl1
+            // 
+            this.cCMatrixEl1.BackColor = System.Drawing.Color.White;
+            this.cCMatrixEl1.Location = new System.Drawing.Point(63, 61);
+            this.cCMatrixEl1.Name = "cCMatrixEl1";
+            this.cCMatrixEl1.Size = new System.Drawing.Size(100, 100);
+            this.cCMatrixEl1.TabIndex = 14;
+            this.cCMatrixEl1.TabStop = false;
             // 
             // btnNowaGra
             // 
@@ -243,7 +252,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Black", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(119, 25);
+            this.label1.Location = new System.Drawing.Point(133, 26);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(205, 33);
@@ -286,6 +295,11 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage2.Controls.Add(this.cCResult);
+            this.tabPage2.Controls.Add(this.cCTest);
+            this.tabPage2.Controls.Add(this.cCBlank);
+            this.tabPage2.Controls.Add(this.cCO);
+            this.tabPage2.Controls.Add(this.cCX);
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label10);
@@ -296,11 +310,6 @@
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.progressBLearning);
-            this.tabPage2.Controls.Add(this.pbRezultat);
-            this.tabPage2.Controls.Add(this.pbTestowanie);
-            this.tabPage2.Controls.Add(this.pbPusty);
-            this.tabPage2.Controls.Add(this.pbKolko);
-            this.tabPage2.Controls.Add(this.pbKrzyzyk);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.lblWyjscieKrzyzyk);
@@ -414,56 +423,6 @@
             this.progressBLearning.Name = "progressBLearning";
             this.progressBLearning.Size = new System.Drawing.Size(83, 23);
             this.progressBLearning.TabIndex = 25;
-            // 
-            // pbRezultat
-            // 
-            this.pbRezultat.BackColor = System.Drawing.Color.White;
-            this.pbRezultat.Location = new System.Drawing.Point(153, 296);
-            this.pbRezultat.Margin = new System.Windows.Forms.Padding(2);
-            this.pbRezultat.Name = "pbRezultat";
-            this.pbRezultat.Size = new System.Drawing.Size(100, 100);
-            this.pbRezultat.TabIndex = 24;
-            this.pbRezultat.TabStop = false;
-            // 
-            // pbTestowanie
-            // 
-            this.pbTestowanie.BackColor = System.Drawing.Color.White;
-            this.pbTestowanie.Location = new System.Drawing.Point(34, 296);
-            this.pbTestowanie.Margin = new System.Windows.Forms.Padding(2);
-            this.pbTestowanie.Name = "pbTestowanie";
-            this.pbTestowanie.Size = new System.Drawing.Size(100, 100);
-            this.pbTestowanie.TabIndex = 23;
-            this.pbTestowanie.TabStop = false;
-            // 
-            // pbPusty
-            // 
-            this.pbPusty.BackColor = System.Drawing.Color.White;
-            this.pbPusty.Location = new System.Drawing.Point(251, 81);
-            this.pbPusty.Margin = new System.Windows.Forms.Padding(2);
-            this.pbPusty.Name = "pbPusty";
-            this.pbPusty.Size = new System.Drawing.Size(100, 100);
-            this.pbPusty.TabIndex = 22;
-            this.pbPusty.TabStop = false;
-            // 
-            // pbKolko
-            // 
-            this.pbKolko.BackColor = System.Drawing.Color.White;
-            this.pbKolko.Location = new System.Drawing.Point(131, 81);
-            this.pbKolko.Margin = new System.Windows.Forms.Padding(2);
-            this.pbKolko.Name = "pbKolko";
-            this.pbKolko.Size = new System.Drawing.Size(100, 100);
-            this.pbKolko.TabIndex = 21;
-            this.pbKolko.TabStop = false;
-            // 
-            // pbKrzyzyk
-            // 
-            this.pbKrzyzyk.BackColor = System.Drawing.Color.White;
-            this.pbKrzyzyk.Location = new System.Drawing.Point(7, 81);
-            this.pbKrzyzyk.Margin = new System.Windows.Forms.Padding(2);
-            this.pbKrzyzyk.Name = "pbKrzyzyk";
-            this.pbKrzyzyk.Size = new System.Drawing.Size(100, 100);
-            this.pbKrzyzyk.TabIndex = 20;
-            this.pbKrzyzyk.TabStop = false;
             // 
             // label3
             // 
@@ -646,14 +605,50 @@
             this.lblNaukaWzorow.TabIndex = 0;
             this.lblNaukaWzorow.Text = "Nauka Wzorów";
             // 
-            // pbPole1
+            // cCX
             // 
-            this.pbPole1.BackColor = System.Drawing.Color.White;
-            this.pbPole1.Location = new System.Drawing.Point(64, 61);
-            this.pbPole1.Name = "pbPole1";
-            this.pbPole1.Size = new System.Drawing.Size(100, 100);
-            this.pbPole1.TabIndex = 23;
-            this.pbPole1.TabStop = false;
+            this.cCX.BackColor = System.Drawing.Color.White;
+            this.cCX.Location = new System.Drawing.Point(8, 83);
+            this.cCX.Name = "cCX";
+            this.cCX.Size = new System.Drawing.Size(100, 100);
+            this.cCX.TabIndex = 35;
+            this.cCX.TabStop = false;
+            // 
+            // cCO
+            // 
+            this.cCO.BackColor = System.Drawing.Color.White;
+            this.cCO.Location = new System.Drawing.Point(134, 84);
+            this.cCO.Name = "cCO";
+            this.cCO.Size = new System.Drawing.Size(100, 100);
+            this.cCO.TabIndex = 36;
+            this.cCO.TabStop = false;
+            // 
+            // cCBlank
+            // 
+            this.cCBlank.BackColor = System.Drawing.Color.White;
+            this.cCBlank.Location = new System.Drawing.Point(257, 83);
+            this.cCBlank.Name = "cCBlank";
+            this.cCBlank.Size = new System.Drawing.Size(100, 100);
+            this.cCBlank.TabIndex = 37;
+            this.cCBlank.TabStop = false;
+            // 
+            // cCTest
+            // 
+            this.cCTest.BackColor = System.Drawing.Color.White;
+            this.cCTest.Location = new System.Drawing.Point(21, 294);
+            this.cCTest.Name = "cCTest";
+            this.cCTest.Size = new System.Drawing.Size(100, 100);
+            this.cCTest.TabIndex = 38;
+            this.cCTest.TabStop = false;
+            // 
+            // cCResult
+            // 
+            this.cCResult.BackColor = System.Drawing.Color.White;
+            this.cCResult.Location = new System.Drawing.Point(165, 297);
+            this.cCResult.Name = "cCResult";
+            this.cCResult.Size = new System.Drawing.Size(100, 100);
+            this.cCResult.TabIndex = 39;
+            this.cCResult.TabStop = false;
             // 
             // TicTacToe
             // 
@@ -667,24 +662,24 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbRezultat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTestowanie)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPusty)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbKolko)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbKrzyzyk)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPole1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCO)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCBlank)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCTest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCResult)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -716,22 +711,9 @@
         private System.Windows.Forms.Button btUcz;
         private System.Windows.Forms.Button btTest;
         private System.Windows.Forms.Button btCzyscTestowanie;
-        private System.Windows.Forms.PictureBox pbRezultat;
-        private System.Windows.Forms.PictureBox pbTestowanie;
-        private System.Windows.Forms.PictureBox pbPusty;
-        private System.Windows.Forms.PictureBox pbKolko;
-        private System.Windows.Forms.PictureBox pbKrzyzyk;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblWyjscieKrzyzyk;
-        private System.Windows.Forms.PictureBox pbPole9;
-        private System.Windows.Forms.PictureBox pbPole8;
-        private System.Windows.Forms.PictureBox pbPole7;
-        private System.Windows.Forms.PictureBox pbPole6;
-        private System.Windows.Forms.PictureBox pbPole5;
-        private System.Windows.Forms.PictureBox pbPole4;
-        private System.Windows.Forms.PictureBox pbPole3;
-        private System.Windows.Forms.PictureBox pbPole2;
         private System.Windows.Forms.ProgressBar progressBLearning;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
@@ -742,7 +724,20 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pbPole1;
+        private View.CanvasControl cCMatrixEl9;
+        private View.CanvasControl cCMatrixEl8;
+        private View.CanvasControl cCMatrixEl7;
+        private View.CanvasControl cCMatrixEl6;
+        private View.CanvasControl cCMatrixEl5;
+        private View.CanvasControl cCMatrixEl4;
+        private View.CanvasControl cCMatrixEl3;
+        private View.CanvasControl cCMatrixEl2;
+        private View.CanvasControl cCMatrixEl1;
+        private View.CanvasControl cCResult;
+        private View.CanvasControl cCTest;
+        private View.CanvasControl cCBlank;
+        private View.CanvasControl cCO;
+        private View.CanvasControl cCX;
     }
 }
 

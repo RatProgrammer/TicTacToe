@@ -11,6 +11,7 @@ namespace KolkoKrzyzyk
         public event Action<Point, CanvasType> StartPaintAction;
         public event Action<Point, CanvasType> StopPaintAction;
         public event Action<Point, CanvasType> MovePaintAction;
+        private CanvasType canvasType;
         public TicTacToe()
         {
             InitializeComponent();
@@ -32,7 +33,6 @@ namespace KolkoKrzyzyk
 
         private void canvas_MovePaint(object sender,MouseEventArgs obj)
         {
-            CanvasType canvasType= CanvasType.None;
             CanvasControl canvasControl = sender as CanvasControl;
             canvasType = EnumUtil.ParseEnum<CanvasType>(canvasControl?.Name);
             MovePaintAction?.Invoke(obj.Location, canvasType);
@@ -41,7 +41,6 @@ namespace KolkoKrzyzyk
 
         private void canvas_StartPaint(object sender, MouseEventArgs e)
         {
-            CanvasType canvasType = CanvasType.None;
             CanvasControl canvasControl = sender as CanvasControl;
             canvasType = EnumUtil.ParseEnum<CanvasType>(canvasControl?.Name);
             StartPaintAction?.Invoke(e.Location,canvasType);
@@ -49,44 +48,37 @@ namespace KolkoKrzyzyk
 
         private void canvas_StopPaint(object sender, MouseEventArgs e)
         {
-            CanvasType canvasType = CanvasType.None;
             CanvasControl canvasControl = sender as CanvasControl;
             canvasType = EnumUtil.ParseEnum<CanvasType>(canvasControl?.Name);
             StopPaintAction?.Invoke(e.Location,canvasType);
         }
 
-        public void UpdateCanvas(CanvasType canvasType, Bitmap currentBitmap)
+        public void UpdateCanvasX(Bitmap currentBitmap)
         {
-            switch (canvasType)
-            {
-                case CanvasType.CCX:
-                    cCX.Image = currentBitmap;
-                    cCX.Invalidate();
-                    cCX.Refresh();
-                    break;
-                case CanvasType.CCO:
-                    cCO.Image = currentBitmap;
-                    cCO.Invalidate();
-                    cCO.Refresh();
-                    break;
-                case CanvasType.CCBlank:
-                    cCBlank.Image = currentBitmap;
-                    cCBlank.Invalidate();
-                    cCBlank.Refresh();
-                    break;
-                case CanvasType.CCTest:
-                    cCTest.Image = currentBitmap;
-                    cCTest.Invalidate();
-                    cCTest.Refresh();
-                    break;
-                case CanvasType.None:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(canvasType), canvasType, null);
-            }
+            cCX.Image = currentBitmap;
+            cCX.Invalidate();
+            cCX.Refresh();
         }
 
 
+        public void UpdateCanvasO(Bitmap currentBitmap)
+        {
+            cCO.Image = currentBitmap;
+            cCO.Invalidate();
+            cCO.Refresh();
+        }
 
+        public void UpdateCanvasTest(Bitmap currentBitmap)
+        {
+                    cCTest.Image = currentBitmap;
+                    cCTest.Invalidate();
+                    cCTest.Refresh();
+        }
+        public void UpdateCanvasBlank(Bitmap currentBitmap)
+        {
+                    cCBlank.Image = currentBitmap;
+                    cCBlank.Invalidate();
+                    cCBlank.Refresh();
+        }
     }
 }

@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\DrawModel\LearningCanvas.cs" />
     <Compile Include="Model\Utility\EnumUtil.cs" />
     <Compile Include="View\CanvasType.cs" />
     <Compile Include="View\Form1.cs">

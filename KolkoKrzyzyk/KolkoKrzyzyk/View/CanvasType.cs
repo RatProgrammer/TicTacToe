@@ -5,7 +5,6 @@
         CCX,
         CCO,
         CCBlank,
-        CCTest,
-        None
+        CCTest
     }
 }

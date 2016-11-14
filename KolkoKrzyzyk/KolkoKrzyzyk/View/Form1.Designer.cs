@@ -1,4 +1,4 @@
-﻿namespace KolkoKrzyzyk
+﻿namespace TicTacToe.View
 {
     partial class TicTacToe
     {
@@ -30,15 +30,15 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.cCMatrixEl9 = new KolkoKrzyzyk.View.CanvasControl();
-            this.cCMatrixEl8 = new KolkoKrzyzyk.View.CanvasControl();
-            this.cCMatrixEl7 = new KolkoKrzyzyk.View.CanvasControl();
-            this.cCMatrixEl6 = new KolkoKrzyzyk.View.CanvasControl();
-            this.cCMatrixEl5 = new KolkoKrzyzyk.View.CanvasControl();
-            this.cCMatrixEl4 = new KolkoKrzyzyk.View.CanvasControl();
-            this.cCMatrixEl3 = new KolkoKrzyzyk.View.CanvasControl();
-            this.cCMatrixEl2 = new KolkoKrzyzyk.View.CanvasControl();
-            this.cCMatrixEl1 = new KolkoKrzyzyk.View.CanvasControl();
+            this.pcMatrix33 = new System.Windows.Forms.PictureBox();
+            this.pcMatrix32 = new System.Windows.Forms.PictureBox();
+            this.pcMatrix31 = new System.Windows.Forms.PictureBox();
+            this.pcMatrix23 = new System.Windows.Forms.PictureBox();
+            this.pcMatrix22 = new System.Windows.Forms.PictureBox();
+            this.pcMatrix21 = new System.Windows.Forms.PictureBox();
+            this.pcMatrix13 = new System.Windows.Forms.PictureBox();
+            this.pcMatrix12 = new System.Windows.Forms.PictureBox();
+            this.pcMatrix11 = new System.Windows.Forms.PictureBox();
             this.btnNowaGra = new System.Windows.Forms.Button();
             this.btnCofnij = new System.Windows.Forms.Button();
             this.btnGraj = new System.Windows.Forms.Button();
@@ -48,6 +48,11 @@
             this.nEWGAMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.qUITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pcResult = new System.Windows.Forms.PictureBox();
+            this.pcTest = new System.Windows.Forms.PictureBox();
+            this.pcBlank = new System.Windows.Forms.PictureBox();
+            this.pcCircle = new System.Windows.Forms.PictureBox();
+            this.pcCross = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -76,29 +81,24 @@
             this.lblRezultat = new System.Windows.Forms.Label();
             this.lblTestowanie = new System.Windows.Forms.Label();
             this.lblNaukaWzorow = new System.Windows.Forms.Label();
-            this.cCX = new KolkoKrzyzyk.View.CanvasControl();
-            this.cCO = new KolkoKrzyzyk.View.CanvasControl();
-            this.cCBlank = new KolkoKrzyzyk.View.CanvasControl();
-            this.cCTest = new KolkoKrzyzyk.View.CanvasControl();
-            this.cCResult = new KolkoKrzyzyk.View.CanvasControl();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix33)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix11)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cCX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCO)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCBlank)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCTest)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCResult)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcResult)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcTest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcBlank)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcCircle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcCross)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -115,15 +115,15 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Gainsboro;
-            this.tabPage1.Controls.Add(this.cCMatrixEl9);
-            this.tabPage1.Controls.Add(this.cCMatrixEl8);
-            this.tabPage1.Controls.Add(this.cCMatrixEl7);
-            this.tabPage1.Controls.Add(this.cCMatrixEl6);
-            this.tabPage1.Controls.Add(this.cCMatrixEl5);
-            this.tabPage1.Controls.Add(this.cCMatrixEl4);
-            this.tabPage1.Controls.Add(this.cCMatrixEl3);
-            this.tabPage1.Controls.Add(this.cCMatrixEl2);
-            this.tabPage1.Controls.Add(this.cCMatrixEl1);
+            this.tabPage1.Controls.Add(this.pcMatrix33);
+            this.tabPage1.Controls.Add(this.pcMatrix32);
+            this.tabPage1.Controls.Add(this.pcMatrix31);
+            this.tabPage1.Controls.Add(this.pcMatrix23);
+            this.tabPage1.Controls.Add(this.pcMatrix22);
+            this.tabPage1.Controls.Add(this.pcMatrix21);
+            this.tabPage1.Controls.Add(this.pcMatrix13);
+            this.tabPage1.Controls.Add(this.pcMatrix12);
+            this.tabPage1.Controls.Add(this.pcMatrix11);
             this.tabPage1.Controls.Add(this.btnNowaGra);
             this.tabPage1.Controls.Add(this.btnCofnij);
             this.tabPage1.Controls.Add(this.btnGraj);
@@ -137,86 +137,86 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "GRA";
             // 
-            // cCMatrixEl9
+            // pcMatrix33
             // 
-            this.cCMatrixEl9.BackColor = System.Drawing.Color.White;
-            this.cCMatrixEl9.Location = new System.Drawing.Point(308, 273);
-            this.cCMatrixEl9.Name = "cCMatrixEl9";
-            this.cCMatrixEl9.Size = new System.Drawing.Size(100, 100);
-            this.cCMatrixEl9.TabIndex = 22;
-            this.cCMatrixEl9.TabStop = false;
+            this.pcMatrix33.BackColor = System.Drawing.Color.White;
+            this.pcMatrix33.Location = new System.Drawing.Point(293, 274);
+            this.pcMatrix33.Name = "pcMatrix33";
+            this.pcMatrix33.Size = new System.Drawing.Size(100, 100);
+            this.pcMatrix33.TabIndex = 22;
+            this.pcMatrix33.TabStop = false;
             // 
-            // cCMatrixEl8
+            // pcMatrix32
             // 
-            this.cCMatrixEl8.BackColor = System.Drawing.Color.White;
-            this.cCMatrixEl8.Location = new System.Drawing.Point(187, 273);
-            this.cCMatrixEl8.Name = "cCMatrixEl8";
-            this.cCMatrixEl8.Size = new System.Drawing.Size(100, 100);
-            this.cCMatrixEl8.TabIndex = 21;
-            this.cCMatrixEl8.TabStop = false;
+            this.pcMatrix32.BackColor = System.Drawing.Color.White;
+            this.pcMatrix32.Location = new System.Drawing.Point(178, 274);
+            this.pcMatrix32.Name = "pcMatrix32";
+            this.pcMatrix32.Size = new System.Drawing.Size(100, 100);
+            this.pcMatrix32.TabIndex = 21;
+            this.pcMatrix32.TabStop = false;
             // 
-            // cCMatrixEl7
+            // pcMatrix31
             // 
-            this.cCMatrixEl7.BackColor = System.Drawing.Color.White;
-            this.cCMatrixEl7.Location = new System.Drawing.Point(63, 273);
-            this.cCMatrixEl7.Name = "cCMatrixEl7";
-            this.cCMatrixEl7.Size = new System.Drawing.Size(100, 100);
-            this.cCMatrixEl7.TabIndex = 20;
-            this.cCMatrixEl7.TabStop = false;
+            this.pcMatrix31.BackColor = System.Drawing.Color.White;
+            this.pcMatrix31.Location = new System.Drawing.Point(64, 274);
+            this.pcMatrix31.Name = "pcMatrix31";
+            this.pcMatrix31.Size = new System.Drawing.Size(100, 100);
+            this.pcMatrix31.TabIndex = 20;
+            this.pcMatrix31.TabStop = false;
             // 
-            // cCMatrixEl6
+            // pcMatrix23
             // 
-            this.cCMatrixEl6.BackColor = System.Drawing.Color.White;
-            this.cCMatrixEl6.Location = new System.Drawing.Point(308, 167);
-            this.cCMatrixEl6.Name = "cCMatrixEl6";
-            this.cCMatrixEl6.Size = new System.Drawing.Size(100, 100);
-            this.cCMatrixEl6.TabIndex = 19;
-            this.cCMatrixEl6.TabStop = false;
+            this.pcMatrix23.BackColor = System.Drawing.Color.White;
+            this.pcMatrix23.Location = new System.Drawing.Point(293, 168);
+            this.pcMatrix23.Name = "pcMatrix23";
+            this.pcMatrix23.Size = new System.Drawing.Size(100, 100);
+            this.pcMatrix23.TabIndex = 19;
+            this.pcMatrix23.TabStop = false;
             // 
-            // cCMatrixEl5
+            // pcMatrix22
             // 
-            this.cCMatrixEl5.BackColor = System.Drawing.Color.White;
-            this.cCMatrixEl5.Location = new System.Drawing.Point(187, 167);
-            this.cCMatrixEl5.Name = "cCMatrixEl5";
-            this.cCMatrixEl5.Size = new System.Drawing.Size(100, 100);
-            this.cCMatrixEl5.TabIndex = 18;
-            this.cCMatrixEl5.TabStop = false;
+            this.pcMatrix22.BackColor = System.Drawing.Color.White;
+            this.pcMatrix22.Location = new System.Drawing.Point(178, 168);
+            this.pcMatrix22.Name = "pcMatrix22";
+            this.pcMatrix22.Size = new System.Drawing.Size(100, 100);
+            this.pcMatrix22.TabIndex = 18;
+            this.pcMatrix22.TabStop = false;
             // 
-            // cCMatrixEl4
+            // pcMatrix21
             // 
-            this.cCMatrixEl4.BackColor = System.Drawing.Color.White;
-            this.cCMatrixEl4.Location = new System.Drawing.Point(63, 167);
-            this.cCMatrixEl4.Name = "cCMatrixEl4";
-            this.cCMatrixEl4.Size = new System.Drawing.Size(100, 100);
-            this.cCMatrixEl4.TabIndex = 17;
-            this.cCMatrixEl4.TabStop = false;
+            this.pcMatrix21.BackColor = System.Drawing.Color.White;
+            this.pcMatrix21.Location = new System.Drawing.Point(64, 168);
+            this.pcMatrix21.Name = "pcMatrix21";
+            this.pcMatrix21.Size = new System.Drawing.Size(100, 100);
+            this.pcMatrix21.TabIndex = 17;
+            this.pcMatrix21.TabStop = false;
             // 
-            // cCMatrixEl3
+            // pcMatrix13
             // 
-            this.cCMatrixEl3.BackColor = System.Drawing.Color.White;
-            this.cCMatrixEl3.Location = new System.Drawing.Point(308, 61);
-            this.cCMatrixEl3.Name = "cCMatrixEl3";
-            this.cCMatrixEl3.Size = new System.Drawing.Size(100, 100);
-            this.cCMatrixEl3.TabIndex = 16;
-            this.cCMatrixEl3.TabStop = false;
+            this.pcMatrix13.BackColor = System.Drawing.Color.White;
+            this.pcMatrix13.Location = new System.Drawing.Point(293, 62);
+            this.pcMatrix13.Name = "pcMatrix13";
+            this.pcMatrix13.Size = new System.Drawing.Size(100, 100);
+            this.pcMatrix13.TabIndex = 16;
+            this.pcMatrix13.TabStop = false;
             // 
-            // cCMatrixEl2
+            // pcMatrix12
             // 
-            this.cCMatrixEl2.BackColor = System.Drawing.Color.White;
-            this.cCMatrixEl2.Location = new System.Drawing.Point(187, 61);
-            this.cCMatrixEl2.Name = "cCMatrixEl2";
-            this.cCMatrixEl2.Size = new System.Drawing.Size(100, 100);
-            this.cCMatrixEl2.TabIndex = 15;
-            this.cCMatrixEl2.TabStop = false;
+            this.pcMatrix12.BackColor = System.Drawing.Color.White;
+            this.pcMatrix12.Location = new System.Drawing.Point(178, 62);
+            this.pcMatrix12.Name = "pcMatrix12";
+            this.pcMatrix12.Size = new System.Drawing.Size(100, 100);
+            this.pcMatrix12.TabIndex = 15;
+            this.pcMatrix12.TabStop = false;
             // 
-            // cCMatrixEl1
+            // pcMatrix11
             // 
-            this.cCMatrixEl1.BackColor = System.Drawing.Color.White;
-            this.cCMatrixEl1.Location = new System.Drawing.Point(63, 61);
-            this.cCMatrixEl1.Name = "cCMatrixEl1";
-            this.cCMatrixEl1.Size = new System.Drawing.Size(100, 100);
-            this.cCMatrixEl1.TabIndex = 14;
-            this.cCMatrixEl1.TabStop = false;
+            this.pcMatrix11.BackColor = System.Drawing.Color.White;
+            this.pcMatrix11.Location = new System.Drawing.Point(64, 62);
+            this.pcMatrix11.Name = "pcMatrix11";
+            this.pcMatrix11.Size = new System.Drawing.Size(100, 100);
+            this.pcMatrix11.TabIndex = 14;
+            this.pcMatrix11.TabStop = false;
             // 
             // btnNowaGra
             // 
@@ -295,11 +295,11 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Gainsboro;
-            this.tabPage2.Controls.Add(this.cCResult);
-            this.tabPage2.Controls.Add(this.cCTest);
-            this.tabPage2.Controls.Add(this.cCBlank);
-            this.tabPage2.Controls.Add(this.cCO);
-            this.tabPage2.Controls.Add(this.cCX);
+            this.tabPage2.Controls.Add(this.pcResult);
+            this.tabPage2.Controls.Add(this.pcTest);
+            this.tabPage2.Controls.Add(this.pcBlank);
+            this.tabPage2.Controls.Add(this.pcCircle);
+            this.tabPage2.Controls.Add(this.pcCross);
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label10);
@@ -336,10 +336,55 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "NAUKA";
             // 
+            // pcResult
+            // 
+            this.pcResult.BackColor = System.Drawing.Color.White;
+            this.pcResult.Location = new System.Drawing.Point(150, 299);
+            this.pcResult.Name = "pcResult";
+            this.pcResult.Size = new System.Drawing.Size(100, 100);
+            this.pcResult.TabIndex = 39;
+            this.pcResult.TabStop = false;
+            // 
+            // pcTest
+            // 
+            this.pcTest.BackColor = System.Drawing.Color.White;
+            this.pcTest.Location = new System.Drawing.Point(25, 299);
+            this.pcTest.Name = "pcTest";
+            this.pcTest.Size = new System.Drawing.Size(100, 100);
+            this.pcTest.TabIndex = 38;
+            this.pcTest.TabStop = false;
+            // 
+            // pcBlank
+            // 
+            this.pcBlank.BackColor = System.Drawing.Color.White;
+            this.pcBlank.Location = new System.Drawing.Point(251, 86);
+            this.pcBlank.Name = "pcBlank";
+            this.pcBlank.Size = new System.Drawing.Size(100, 100);
+            this.pcBlank.TabIndex = 37;
+            this.pcBlank.TabStop = false;
+            // 
+            // pcCircle
+            // 
+            this.pcCircle.BackColor = System.Drawing.Color.White;
+            this.pcCircle.Location = new System.Drawing.Point(133, 86);
+            this.pcCircle.Name = "pcCircle";
+            this.pcCircle.Size = new System.Drawing.Size(100, 100);
+            this.pcCircle.TabIndex = 36;
+            this.pcCircle.TabStop = false;
+            // 
+            // pcCross
+            // 
+            this.pcCross.BackColor = System.Drawing.Color.White;
+            this.pcCross.Location = new System.Drawing.Point(8, 85);
+            this.pcCross.Name = "pcCross";
+            this.pcCross.Size = new System.Drawing.Size(100, 100);
+            this.pcCross.TabIndex = 35;
+            this.pcCross.TabStop = false;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(288, 35);
+            this.label12.Location = new System.Drawing.Point(290, 37);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(16, 13);
             this.label12.TabIndex = 34;
@@ -348,7 +393,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(178, 35);
+            this.label11.Location = new System.Drawing.Point(180, 37);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(15, 13);
             this.label11.TabIndex = 33;
@@ -357,7 +402,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(44, 38);
+            this.label10.Location = new System.Drawing.Point(46, 40);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(14, 13);
             this.label10.TabIndex = 32;
@@ -366,7 +411,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(305, 67);
+            this.label9.Location = new System.Drawing.Point(307, 69);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(13, 13);
             this.label9.TabIndex = 31;
@@ -375,7 +420,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(285, 67);
+            this.label8.Location = new System.Drawing.Point(287, 69);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(13, 13);
             this.label8.TabIndex = 30;
@@ -384,7 +429,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(182, 68);
+            this.label7.Location = new System.Drawing.Point(184, 70);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(13, 13);
             this.label7.TabIndex = 29;
@@ -393,7 +438,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(162, 67);
+            this.label6.Location = new System.Drawing.Point(164, 69);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(13, 13);
             this.label6.TabIndex = 28;
@@ -402,7 +447,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(54, 67);
+            this.label5.Location = new System.Drawing.Point(56, 69);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(13, 13);
             this.label5.TabIndex = 27;
@@ -411,7 +456,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 68);
+            this.label4.Location = new System.Drawing.Point(36, 70);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(13, 13);
             this.label4.TabIndex = 26;
@@ -427,7 +472,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(282, 51);
+            this.label3.Location = new System.Drawing.Point(284, 53);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
@@ -437,7 +482,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(162, 51);
+            this.label2.Location = new System.Drawing.Point(164, 53);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
@@ -447,7 +492,7 @@
             // lblWyjscieKrzyzyk
             // 
             this.lblWyjscieKrzyzyk.AutoSize = true;
-            this.lblWyjscieKrzyzyk.Location = new System.Drawing.Point(34, 51);
+            this.lblWyjscieKrzyzyk.Location = new System.Drawing.Point(36, 53);
             this.lblWyjscieKrzyzyk.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWyjscieKrzyzyk.Name = "lblWyjscieKrzyzyk";
             this.lblWyjscieKrzyzyk.Size = new System.Drawing.Size(44, 13);
@@ -463,6 +508,7 @@
             this.btUcz.TabIndex = 16;
             this.btUcz.Text = "Ucz";
             this.btUcz.UseVisualStyleBackColor = true;
+            this.btUcz.Click += new System.EventHandler(this.btUcz_Click);
             // 
             // btTest
             // 
@@ -473,6 +519,7 @@
             this.btTest.TabIndex = 14;
             this.btTest.Text = "Test";
             this.btTest.UseVisualStyleBackColor = true;
+            this.btTest.Click += new System.EventHandler(this.btTest_Click);
             // 
             // btCzyscTestowanie
             // 
@@ -483,6 +530,7 @@
             this.btCzyscTestowanie.TabIndex = 13;
             this.btCzyscTestowanie.Text = "Czyść";
             this.btCzyscTestowanie.UseVisualStyleBackColor = true;
+            this.btCzyscTestowanie.Click += new System.EventHandler(this.canvas_Clean);
             // 
             // btCzyscPusty
             // 
@@ -493,6 +541,7 @@
             this.btCzyscPusty.TabIndex = 12;
             this.btCzyscPusty.Text = "Czyść";
             this.btCzyscPusty.UseVisualStyleBackColor = true;
+            this.btCzyscPusty.Click += new System.EventHandler(this.canvas_Clean);
             // 
             // btCzyscKolko
             // 
@@ -503,6 +552,7 @@
             this.btCzyscKolko.TabIndex = 11;
             this.btCzyscKolko.Text = "Czyść";
             this.btCzyscKolko.UseVisualStyleBackColor = true;
+            this.btCzyscKolko.Click += new System.EventHandler(this.canvas_Clean);
             // 
             // btCzyscKrzyzyk
             // 
@@ -513,36 +563,40 @@
             this.btCzyscKrzyzyk.TabIndex = 10;
             this.btCzyscKrzyzyk.Text = "Czyść";
             this.btCzyscKrzyzyk.UseVisualStyleBackColor = true;
+            this.btCzyscKrzyzyk.Click += new System.EventHandler(this.canvas_Clean);
             // 
             // btKopiujPusty
             // 
             this.btKopiujPusty.Location = new System.Drawing.Point(270, 222);
             this.btKopiujPusty.Margin = new System.Windows.Forms.Padding(2);
             this.btKopiujPusty.Name = "btKopiujPusty";
-            this.btKopiujPusty.Size = new System.Drawing.Size(64, 21);
+            this.btKopiujPusty.Size = new System.Drawing.Size(93, 21);
             this.btKopiujPusty.TabIndex = 9;
-            this.btKopiujPusty.Text = "Akceptuj";
+            this.btKopiujPusty.Text = "Kopiuj do testów";
             this.btKopiujPusty.UseVisualStyleBackColor = true;
+            this.btKopiujPusty.Click += new System.EventHandler(this.btKopiuj_Click);
             // 
             // btKopiujKolko
             // 
             this.btKopiujKolko.Location = new System.Drawing.Point(153, 222);
             this.btKopiujKolko.Margin = new System.Windows.Forms.Padding(2);
             this.btKopiujKolko.Name = "btKopiujKolko";
-            this.btKopiujKolko.Size = new System.Drawing.Size(68, 21);
+            this.btKopiujKolko.Size = new System.Drawing.Size(97, 21);
             this.btKopiujKolko.TabIndex = 8;
-            this.btKopiujKolko.Text = "Akceptuj";
+            this.btKopiujKolko.Text = "Kopiuj do testów";
             this.btKopiujKolko.UseVisualStyleBackColor = true;
+            this.btKopiujKolko.Click += new System.EventHandler(this.btKopiuj_Click);
             // 
             // btKopiujKrzyzyk
             // 
             this.btKopiujKrzyzyk.Location = new System.Drawing.Point(34, 222);
             this.btKopiujKrzyzyk.Margin = new System.Windows.Forms.Padding(2);
             this.btKopiujKrzyzyk.Name = "btKopiujKrzyzyk";
-            this.btKopiujKrzyzyk.Size = new System.Drawing.Size(59, 21);
+            this.btKopiujKrzyzyk.Size = new System.Drawing.Size(100, 21);
             this.btKopiujKrzyzyk.TabIndex = 7;
-            this.btKopiujKrzyzyk.Text = "Akceptuj";
+            this.btKopiujKrzyzyk.Text = "Kopiuj do testów";
             this.btKopiujKrzyzyk.UseVisualStyleBackColor = true;
+            this.btKopiujKrzyzyk.Click += new System.EventHandler(this.btKopiuj_Click);
             // 
             // btPusty
             // 
@@ -563,6 +617,7 @@
             this.btKolko.TabIndex = 5;
             this.btKolko.Text = "Kólko";
             this.btKolko.UseVisualStyleBackColor = true;
+            this.btKolko.Click += new System.EventHandler(this.btKolko_Click);
             // 
             // btKrzyzyk
             // 
@@ -573,11 +628,12 @@
             this.btKrzyzyk.TabIndex = 4;
             this.btKrzyzyk.Text = "Krzyżyk";
             this.btKrzyzyk.UseVisualStyleBackColor = true;
+            this.btKrzyzyk.Click += new System.EventHandler(this.btKrzyzyk_Click);
             // 
             // lblRezultat
             // 
             this.lblRezultat.AutoSize = true;
-            this.lblRezultat.Location = new System.Drawing.Point(175, 281);
+            this.lblRezultat.Location = new System.Drawing.Point(177, 283);
             this.lblRezultat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRezultat.Name = "lblRezultat";
             this.lblRezultat.Size = new System.Drawing.Size(46, 13);
@@ -587,7 +643,7 @@
             // lblTestowanie
             // 
             this.lblTestowanie.AutoSize = true;
-            this.lblTestowanie.Location = new System.Drawing.Point(31, 281);
+            this.lblTestowanie.Location = new System.Drawing.Point(33, 283);
             this.lblTestowanie.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTestowanie.Name = "lblTestowanie";
             this.lblTestowanie.Size = new System.Drawing.Size(62, 13);
@@ -598,57 +654,12 @@
             // 
             this.lblNaukaWzorow.AutoSize = true;
             this.lblNaukaWzorow.Font = new System.Drawing.Font("Arial Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNaukaWzorow.Location = new System.Drawing.Point(116, 2);
+            this.lblNaukaWzorow.Location = new System.Drawing.Point(118, 4);
             this.lblNaukaWzorow.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNaukaWzorow.Name = "lblNaukaWzorow";
             this.lblNaukaWzorow.Size = new System.Drawing.Size(210, 33);
             this.lblNaukaWzorow.TabIndex = 0;
             this.lblNaukaWzorow.Text = "Nauka Wzorów";
-            // 
-            // cCX
-            // 
-            this.cCX.BackColor = System.Drawing.Color.White;
-            this.cCX.Location = new System.Drawing.Point(8, 83);
-            this.cCX.Name = "cCX";
-            this.cCX.Size = new System.Drawing.Size(100, 100);
-            this.cCX.TabIndex = 35;
-            this.cCX.TabStop = false;
-            // 
-            // cCO
-            // 
-            this.cCO.BackColor = System.Drawing.Color.White;
-            this.cCO.Location = new System.Drawing.Point(134, 84);
-            this.cCO.Name = "cCO";
-            this.cCO.Size = new System.Drawing.Size(100, 100);
-            this.cCO.TabIndex = 36;
-            this.cCO.TabStop = false;
-            // 
-            // cCBlank
-            // 
-            this.cCBlank.BackColor = System.Drawing.Color.White;
-            this.cCBlank.Location = new System.Drawing.Point(257, 83);
-            this.cCBlank.Name = "cCBlank";
-            this.cCBlank.Size = new System.Drawing.Size(100, 100);
-            this.cCBlank.TabIndex = 37;
-            this.cCBlank.TabStop = false;
-            // 
-            // cCTest
-            // 
-            this.cCTest.BackColor = System.Drawing.Color.White;
-            this.cCTest.Location = new System.Drawing.Point(21, 294);
-            this.cCTest.Name = "cCTest";
-            this.cCTest.Size = new System.Drawing.Size(100, 100);
-            this.cCTest.TabIndex = 38;
-            this.cCTest.TabStop = false;
-            // 
-            // cCResult
-            // 
-            this.cCResult.BackColor = System.Drawing.Color.White;
-            this.cCResult.Location = new System.Drawing.Point(165, 297);
-            this.cCResult.Name = "cCResult";
-            this.cCResult.Size = new System.Drawing.Size(100, 100);
-            this.cCResult.TabIndex = 39;
-            this.cCResult.TabStop = false;
             // 
             // TicTacToe
             // 
@@ -662,24 +673,24 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCMatrixEl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix33)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix11)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cCX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCO)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCBlank)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCTest)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCResult)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcResult)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcTest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcBlank)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcCircle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcCross)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -724,20 +735,20 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private View.CanvasControl cCMatrixEl9;
-        private View.CanvasControl cCMatrixEl8;
-        private View.CanvasControl cCMatrixEl7;
-        private View.CanvasControl cCMatrixEl6;
-        private View.CanvasControl cCMatrixEl5;
-        private View.CanvasControl cCMatrixEl4;
-        private View.CanvasControl cCMatrixEl3;
-        private View.CanvasControl cCMatrixEl2;
-        private View.CanvasControl cCMatrixEl1;
-        private View.CanvasControl cCResult;
-        private View.CanvasControl cCTest;
-        private View.CanvasControl cCBlank;
-        private View.CanvasControl cCO;
-        private View.CanvasControl cCX;
+        private System.Windows.Forms.PictureBox pcMatrix33;
+        private System.Windows.Forms.PictureBox pcMatrix32;
+        private System.Windows.Forms.PictureBox pcMatrix31;
+        private System.Windows.Forms.PictureBox pcMatrix23;
+        private System.Windows.Forms.PictureBox pcMatrix22;
+        private System.Windows.Forms.PictureBox pcMatrix21;
+        private System.Windows.Forms.PictureBox pcMatrix13;
+        private System.Windows.Forms.PictureBox pcMatrix12;
+        private System.Windows.Forms.PictureBox pcMatrix11;
+        private System.Windows.Forms.PictureBox pcResult;
+        private System.Windows.Forms.PictureBox pcTest;
+        private System.Windows.Forms.PictureBox pcBlank;
+        private System.Windows.Forms.PictureBox pcCircle;
+        private System.Windows.Forms.PictureBox pcCross;
     }
 }
 

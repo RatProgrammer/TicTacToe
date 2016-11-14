@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using TicTacToe.View;
 
-namespace KolkoKrzyzyk.Model.DrawModel
+namespace TicTacToe.Model.DrawModel
 {
     class LearningCanvas
     {
@@ -22,16 +23,16 @@ namespace KolkoKrzyzyk.Model.DrawModel
         {
             switch (canvasType)
             {
-                case CanvasType.CCX:
+                case CanvasType.pcCross:
                     _crossBitmap = bitmap;
                     break;
-                case CanvasType.CCO:
+                case CanvasType.pcCircle:
                     _circleBitmap = bitmap;
                     break;
-                case CanvasType.CCBlank:
+                case CanvasType.pcBlank:
                     _blankBitmap = bitmap;
                     break;
-                case CanvasType.CCTest:
+                case CanvasType.pcTest:
                     _testBitmap = bitmap;
                     break;
                 default:
@@ -45,13 +46,13 @@ namespace KolkoKrzyzyk.Model.DrawModel
         {
             switch (canvasType)
             {
-                case CanvasType.CCX:
+                case CanvasType.pcCross:
                     return new Bitmap(_crossBitmap);
-                case CanvasType.CCO:
+                case CanvasType.pcCircle:
                     return new Bitmap(_circleBitmap);
-                case CanvasType.CCBlank:
+                case CanvasType.pcBlank:
                     return new Bitmap(_blankBitmap);
-                case CanvasType.CCTest:
+                case CanvasType.pcTest:
                     return new Bitmap(_testBitmap);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(canvasType), canvasType, null);

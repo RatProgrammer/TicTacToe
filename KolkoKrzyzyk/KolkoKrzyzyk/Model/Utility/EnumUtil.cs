@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace KolkoKrzyzyk.Model.Utility
+namespace TicTacToe.Model.Utility
 {
     class EnumUtil
     {

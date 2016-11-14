@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KolkoKrzyzyk", "KolkoKrzyzyk\KolkoKrzyzyk.csproj", "{0F2A2B93-8696-4C07-8149-5D7B752D1CC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe", "KolkoKrzyzyk\TicTacToe.csproj", "{0F2A2B93-8696-4C07-8149-5D7B752D1CC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,8 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 
-namespace KolkoKrzyzyk.Model.DrawModel
+namespace TicTacToe.Model.DrawModel
 {
     class MyPen
     {
@@ -8,7 +10,7 @@ namespace KolkoKrzyzyk.Model.DrawModel
 
         public MyPen()
         {
-            _pen = new Pen(Color.Black, 3);
+            _pen = new Pen(Color.Black, 10);
         }
         private Point _previousPoint;
         private Graphics _graphics;
@@ -31,9 +33,22 @@ namespace KolkoKrzyzyk.Model.DrawModel
             Point startPoint = point;
             using (_graphics = Graphics.FromImage(current))
             {
-                _graphics.DrawLine(_pen, startPoint, _previousPoint);
+                //_graphics.DrawLine(_pen, startPoint, _previousPoint);
+                _graphics.DrawEllipse(_pen, point.X, point.Y, 5, 5);
             }
             _previousPoint = point;
+        }
+
+        public Bitmap DrawShape(List<Point> points, Bitmap bitmap)
+        {
+            using (_graphics = Graphics.FromImage(bitmap))
+            {
+                for (int i = 0; i < points.Count; i++)
+                {
+                    _graphics.DrawEllipse(_pen, points.ElementAt(i).X, points.ElementAt(i).Y,5,5);
+                }
+                return bitmap;
+            }
         }
     }
 }

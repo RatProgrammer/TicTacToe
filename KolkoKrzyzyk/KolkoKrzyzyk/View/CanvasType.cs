@@ -1,10 +1,10 @@
-﻿namespace KolkoKrzyzyk
+﻿namespace TicTacToe.View
 {
     public enum CanvasType
     {
-        CCX,
-        CCO,
-        CCBlank,
-        CCTest
+        pcCross,
+        pcCircle,
+        pcBlank,
+        pcTest
     }
 }

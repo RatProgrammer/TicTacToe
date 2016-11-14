@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using KolkoKrzyzyk.Presenter;
+using TicTacToe.Presenter;
 
-namespace KolkoKrzyzyk
+namespace TicTacToe
 {
     static class Program
     {
@@ -15,7 +11,7 @@ namespace KolkoKrzyzyk
         [STAThread]
         static void Main()
         {
-            TicTacToe ticTacToe = new TicTacToe();
+            View.TicTacToe ticTacToe = new View.TicTacToe();
             TicTacToePresenter ticTacToePresenter = new TicTacToePresenter(ticTacToe);
             ticTacToePresenter.RunApp();
         }

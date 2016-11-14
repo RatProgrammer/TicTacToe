@@ -5,6 +5,7 @@
         pcCross,
         pcCircle,
         pcBlank,
-        pcTest
+        pcTest,
+        pcResult
     }
 }

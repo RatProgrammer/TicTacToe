@@ -24,16 +24,16 @@ namespace TicTacToe.Model.DrawModel
             switch (canvasType)
             {
                 case CanvasType.pcCross:
-                    _crossBitmap = bitmap;
+                    _crossBitmap = new Bitmap(bitmap);
                     break;
                 case CanvasType.pcCircle:
-                    _circleBitmap = bitmap;
+                    _circleBitmap = new Bitmap(bitmap); ;
                     break;
                 case CanvasType.pcBlank:
-                    _blankBitmap = bitmap;
+                    _blankBitmap = new Bitmap(bitmap); ;
                     break;
                 case CanvasType.pcTest:
-                    _testBitmap = bitmap;
+                    _testBitmap = new Bitmap(bitmap); ;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(canvasType), canvasType, null);

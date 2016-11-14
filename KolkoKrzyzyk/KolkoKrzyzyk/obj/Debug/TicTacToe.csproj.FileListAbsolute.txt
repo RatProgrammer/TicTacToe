@@ -1,6 +1,3 @@
-C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\TicTacToe.View.TicTacToe.resources
-C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\TicTacToe.Properties.Resources.resources
-C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\TicTacToe.csproj.GenerateResource.Cache
 C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\bin\Debug\TicTacToe.exe.config
 C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\bin\Debug\TicTacToe.exe
 C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\bin\Debug\TicTacToe.pdb
@@ -12,6 +9,9 @@ C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\bin\Debug\AForg
 C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\bin\Debug\AForge.Genetic.xml
 C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\bin\Debug\AForge.Math.xml
 C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\bin\Debug\AForge.Neuro.xml
+C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\TicTacToe.View.TicTacToe.resources
+C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\TicTacToe.Properties.Resources.resources
+C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\TicTacToe.csproj.GenerateResource.Cache
 C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\TicTacToe.exe
 C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\TicTacToe.pdb
 C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\TicTacToe.csprojResolveAssemblyReference.cache

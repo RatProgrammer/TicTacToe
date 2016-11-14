@@ -20,7 +20,6 @@ namespace TicTacToe.Presenter
         private LearningContainer _learningContainer;
         private ActivationNetwork _network;
         private BackPropagationLearning _teacher;
-        private Network net;
 
         public TicTacToePresenter(View.TicTacToe ticTacToe)
         {
@@ -29,8 +28,8 @@ namespace TicTacToe.Presenter
             _myPen = new MyPen();
             _learningCanvas = new LearningCanvas();
             _learningContainer = new LearningContainer();
-            _network = new ActivationNetwork(new SigmoidFunction(2), 10000, 10, 2);
-            //
+            _network = new ActivationNetwork(new SigmoidFunction(2), 100, 10, 2);
+            _teacher = new BackPropagationLearning((ActivationNetwork)_network);
             _ticTacToe.StartPaintAction += ExecuteStartPaintAction;
             _ticTacToe.MovePaintAction += ExecuteMovePaintAction;
             _ticTacToe.StopPaintAction += ExecuteStopPaintAction;
@@ -53,24 +52,38 @@ namespace TicTacToe.Presenter
 
         private void ExecuteTestAction()
         {
+
+            _learningContainer.SetChromaticImage(_learningCanvas);
             var bitmapToTest = _learningContainer.GetChromaticImage(CanvasType.pcTest);
             double[] testInput = bitmapToTest.GetChromaticImage();
-            ExecuteLearnAction();
+            //ExecuteLearnAction();
+            Test();
             double[] netout = _network.Compute(testInput);
-            if (netout[0] > 0.7 && netout[1] < 0.1)
+            if (netout[0] > 0.6 && netout[1] < 0.1)
             {
-               ExecuteCrossAction();
+                DesignateCross designateCross = new DesignateCross();
+                List<Point> points = designateCross.Designate();
+                var currentBitmap = _myPen.DrawShape(points, _learningCanvas.GetCanvas(CanvasType.pcCross));
+                _learningCanvas.UpdateCanvas(currentBitmap, CanvasType.pcTest);
+                UpdateCanvas(currentBitmap,CanvasType.pcResult);
+                MessageBox.Show("Krzyżyk");
 
             }
-            else if (netout[0] < 0.1 && netout[1] > 0.7)
+            else if (netout[0] < 0.1 && netout[1] > 0.6)
             {
-                ExecuteCircleAction();
+                DesignateCircle designateCircle = new DesignateCircle();
+                List<Point> points = designateCircle.Designate();
+                var currentBitmap = _myPen.DrawShape(points, _learningCanvas.GetCanvas(CanvasType.pcCircle));
+                _learningCanvas.UpdateCanvas(currentBitmap, CanvasType.pcTest);
+                UpdateCanvas(currentBitmap,CanvasType.pcResult);
+                MessageBox.Show("Kółko");
             }
             else
             {
-                
+                MessageBox.Show("Pusty");
             }
-            //gppForResult.DrawShaps();
+            MessageBox.Show("Skończony test");
+
         }
 
         private void ExecuteCopyAction(CanvasType canvasType)
@@ -80,19 +93,16 @@ namespace TicTacToe.Presenter
             UpdateCanvas(currentBitmap,CanvasType.pcTest);
         }
 
+        private void Test()
+        {
+            _network = (ActivationNetwork)ActivationNetwork.Load("Net.bin");
+            _teacher = new BackPropagationLearning((ActivationNetwork)_network);
+        }
+
 
         private void ExecuteLearnAction()
         {
-
-            try
-            {
-                _network = (ActivationNetwork)ActivationNetwork.Load("Net.bin");
-            }
-            catch (Exception e)
-            {
-                net = new ActivationNetwork(new SigmoidFunction(2), 10000, 20, 2);
-                _teacher = new BackPropagationLearning((ActivationNetwork)_network);
-                _learningContainer.SetChromaticImage(_learningCanvas);
+            _learningContainer.SetChromaticImage(_learningCanvas);
                 var crossImage = _learningContainer.GetChromaticImage(CanvasType.pcCross);
                 double[] crossInput = crossImage.GetChromaticImage();
 
@@ -102,35 +112,248 @@ namespace TicTacToe.Presenter
 
                 var blankImage = _learningContainer.GetChromaticImage(CanvasType.pcBlank);
                 double[] blankInput = blankImage.GetChromaticImage();
-                double[][] input = new double[3][]
-                {
+            double[][] input = new double[17][]
+            {
                 crossInput,
                 circleInput,
-                blankInput
+                blankInput,
+                new double[]
+                {
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                },
+                new double[]
+                {
+                    0, 0, 0, 1, 1, 1, 0, 0, 0, 0,
+                    0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
+                    0, 0, 1, 0, 0, 0, 0, 1, 0, 0,
+                    0, 1, 0, 0, 0, 0, 0, 0, 1, 0,
+                    0, 1, 0, 0, 0, 0, 0, 0, 1, 0,
+                    0, 1, 0, 0, 0, 0, 0, 0, 1, 0,
+                    0, 1, 0, 0, 0, 0, 0, 0, 1, 0,
+                    0, 1, 0, 0, 0, 0, 0, 1, 0, 0,
+                    0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
+                    0, 0, 0, 1, 1, 1, 0, 0, 0, 0
+                },
+                new double[]
+                {
+                    0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
+                    0, 0, 0, 1, 0, 0, 1, 0, 0, 0,
+                    0, 0, 1, 0, 0, 0, 0, 1, 0, 0,
+                    0, 1, 0, 0, 0, 0, 0, 0, 1, 0,
+                    0, 1, 0, 0, 0, 0, 0, 0, 1, 0,
+                    0, 1, 0, 0, 0, 0, 0, 0, 1, 0,
+                    0, 1, 0, 0, 0, 0, 0, 0, 1, 0,
+                    0, 1, 0, 0, 0, 0, 0, 1, 0, 0,
+                    0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
+                    0, 0, 0, 1, 1, 1, 0, 0, 0, 0
+                },
+                new double[]
+                {
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 1, 0, 0, 0, 0, 0, 0, 1, 0,
+                    0, 0, 1, 0, 0, 0, 0, 1, 0, 0,
+                    0, 0, 0, 1, 0, 0, 1, 0, 0, 0,
+                    0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
+                    0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
+                    0, 0, 0, 1, 0, 0, 1, 0, 0, 0,
+                    0, 0, 1, 0, 0, 0, 0, 1, 0, 0,
+                    0, 1, 0, 0, 0, 0, 0, 0, 1, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                },
+                new double[]
+                {
+                    1, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 1, 1, 0, 0, 0, 0, 0, 1, 0,
+                    0, 0, 1, 1, 0, 0, 0, 1, 0, 0,
+                    0, 0, 0, 1, 1, 0, 1, 0, 0, 0,
+                    0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
+                    0, 0, 0, 0, 1, 1, 1, 0, 0, 0,
+                    0, 0, 0, 1, 0, 0, 1, 1, 0, 0,
+                    0, 0, 1, 0, 0, 0, 0, 1, 1, 0,
+                    0, 1, 0, 0, 0, 0, 0, 0, 1, 1,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+                },
+                new double[]
+                {
+                    1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    1, 1, 0, 0, 0, 0, 0, 0, 1, 0,
+                    0, 1, 1, 0, 0, 0, 0, 1, 0, 0,
+                    0, 0, 1, 1, 0, 0, 1, 0, 0, 0,
+                    0, 0, 0, 1, 1, 1, 0, 0, 0, 0,
+                    0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
+                    0, 0, 0, 1, 1, 1, 1, 0, 0, 0,
+                    0, 0, 1, 0, 0, 0, 1, 1, 0, 0,
+                    0, 1, 0, 0, 0, 0, 0, 1, 1, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+                },
+                new double[]
+                {
+                    0, 1, 1, 1, 0, 0, 0, 0, 0, 0,
+                    0, 1, 1, 1, 0, 0, 0, 0, 1, 0,
+                    0, 1, 1, 1, 0, 0, 0, 1, 0, 0,
+                    0, 1, 1, 1, 0, 0, 1, 0, 0, 0,
+                    0, 1, 1, 1, 1, 1, 0, 0, 0, 0,
+                    0, 1, 1, 1, 1, 1, 0, 0, 0, 0,
+                    0, 1, 1, 1, 0, 0, 1, 0, 0, 0,
+                    0, 1, 1, 1, 0, 0, 0, 1, 0, 0,
+                    0, 1, 1, 1, 0, 0, 0, 0, 1, 0,
+                    0, 1, 1, 1, 0, 0, 0, 0, 0, 0
+                },
+                new double[]
+                {
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1,1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                },
+                 new double[]
+                {
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0,0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                },
+                 new double[]
+                {
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0,0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                },
+                  new double[]
+                {
+                    0, 0, 0, 1, 1, 1, 0, 0, 0, 0,
+                    0, 0, 1, 1, 1, 1, 1, 0, 0, 0,
+                    0, 1, 1, 0, 0, 0, 0, 1, 0, 0,
+                    1, 1, 0, 0, 0, 0, 0, 0, 1, 0,
+                    1, 1, 0, 0, 0, 0, 0, 0, 1, 1,
+                    1, 1, 0, 0, 0, 0, 0, 0, 1, 1,
+                    1, 1, 0, 0, 0, 0, 0, 0, 1, 1,
+                    0, 1, 0, 0, 0, 0, 0, 1, 1, 0,
+                    0, 1, 1, 0, 0, 1, 1, 1, 0, 0,
+                    0, 0, 1, 1, 1, 1, 1, 0, 0, 0
+                },
+                   new double[]
+                {
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 1, 1, 1, 1, 1, 0, 0, 0,
+                    0, 1, 1, 0, 0, 0, 0, 1, 0, 0,
+                    1, 1, 0, 0, 0, 0, 0, 0, 1, 0,
+                    1, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+                    1, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+                    1, 1, 0, 0, 0, 0, 0, 0, 0, 1,
+                    0, 1, 0, 0, 0, 0, 0, 0, 1, 0,
+                    0, 1, 0, 0, 0, 0, 1, 1, 0, 0,
+                    0, 0, 1, 1, 1, 1, 1, 0, 0, 0
+                },
+                    new double[]
+                {
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 1, 1, 1, 1, 0, 0, 0,
+                    0, 0, 1, 0, 0, 0, 0, 1, 0, 0,
+                    0, 1, 0, 0, 0, 0, 0, 0, 1, 0,
+                    0, 1, 0, 0, 0, 0, 0, 1, 0, 0,
+                    0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
+                    0, 0, 0, 1, 1, 1, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                },
+                    new double[]
+                {
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
+                    0, 0, 1, 0, 0, 0, 0, 1, 1, 0,
+                    0, 0, 0, 1, 0, 0, 1, 1, 0, 0,
+                    0, 0, 0, 1, 1, 1, 0, 0, 0, 0,
+                    0, 0, 0, 0, 1, 1, 1, 0, 0, 0,
+                    0, 0, 0, 1, 0, 0, 1, 0, 0, 0,
+                    0, 0, 1, 0, 0, 0, 1, 1, 0, 0,
+                    0, 1, 1, 0, 0, 0, 0, 1, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                },
+
                 };
-                double[][] output = new double[3][]
+                double[][] output = new double[17][]
                 {
                 new double[] {1,0},
                 new double[] {0,1},
-                new double[] {0,0}
+                new double[] {0,0},
+                new double[] {0,0},
+                new double[] {0,1},
+                new double[] {0,1},
+                new double[] {1,0},
+                new double[] {1,0},
+                new double[] {1,0},
+                new double[] {0,0},
+                new double[] {0,0},
+                new double[] {0,0},
+                new double[] {0,0},
+                new double[] {0,1},
+                new double[] {0,1},
+                new double[] {0,1},
+                new double[] {1,0},
                 };
 
-                for (int i = 0; i < 10000; i++)
-                {
-                    // run epoch of learning procedure
-                    double error = _teacher.RunEpoch(input, output);
-                    // check error value to see if we need to stop
-                    // ...
-                }
-                _network.Save("Net.bin");
+            for (int i = 0; i < 100000; i++)
+            {
+                // run epoch of learning procedure
+                double error = _teacher.RunEpoch(input, output);
+                // check error value to see if we need to stop
+                // ...
+            }
+            //while (true)
+            //{
+            //    double error = _teacher.RunEpoch(input, output);
+
+            //    if (error < 0.01)
+            //    {
+            //        break;
+            //    }
+
+            //}
+            _network.Save("Net.bin");
                 _network = (ActivationNetwork)ActivationNetwork.Load("Net.bin");
 
-                var result1 = _network.Compute(input[0]);
-                var result2 = _network.Compute(input[1]);
-                var result3 = _network.Compute(input[2]);
-
-            }
-           _teacher = new BackPropagationLearning((ActivationNetwork)_network);
+                var result1 = _network.Compute(input[0]);//x
+                var result2 = _network.Compute(input[1]);//o
+                var result3 = _network.Compute(input[2]);//
+            var result4 = _network.Compute(input[3]);//
+            var result5 = _network.Compute(input[4]);//o
+            var result6 = _network.Compute(input[5]);//o
+            var result7 = _network.Compute(input[6]);//x
+            var result8 = _network.Compute(input[7]);//x
+            var result9 = _network.Compute(input[8]);//x
+            var result10 = _network.Compute(input[9]);//
+            var result11 = _network.Compute(input[10]);//
+            MessageBox.Show("Skończona nauka");
         }
 
         private void ExecuteStopPaintAction(Point point, CanvasType canvasType)
@@ -193,6 +416,9 @@ namespace TicTacToe.Presenter
                     break;
                 case CanvasType.pcTest:
                     _ticTacToe.UpdateCanvasTest(bitmap);
+                    break;
+                case CanvasType.pcResult:
+                    _ticTacToe.UpdateCanvasResult(bitmap);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(canvasType), canvasType, null);

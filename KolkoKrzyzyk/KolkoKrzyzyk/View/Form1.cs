@@ -99,6 +99,13 @@ namespace TicTacToe.View
             pcBlank.Refresh();
         }
 
+        public void UpdateCanvasResult(Bitmap currentBitmap)
+        {
+            pcBlank.Image = currentBitmap;
+            pcBlank.Invalidate();
+            pcBlank.Refresh();
+        }
+
         private void btUcz_Click(object sender, EventArgs e)
         {
             LearnAction?.Invoke();

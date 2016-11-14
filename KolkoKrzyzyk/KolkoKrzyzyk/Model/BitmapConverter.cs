@@ -27,40 +27,24 @@ namespace TicTacToe.Model
                     }
                 }
             }
-            //double[] byteImageMatrix = CreateByteImageMatrix(byteImage);
-            return byteImage; //byteImageMatrix;
+            double[] byteImageMatrix = CreateByteImageMatrix(byteImage);
+            return byteImageMatrix;
         }
 
         public static double[] CreateByteImageMatrix(double[] byteImage)
         {
             int count = 0;
-            //int parameter;
-            double[] byteImageMatrix = new double[625];
-            //foreach (var v in byteImage)
-            //{
-            //    for (int i = 0; i < 1000; i = i + 10)
-            //    {
-            //        for (int j = 0; j < 10; j ++)
-            //        {
-            //            if (byteImage[j + i] == 1 && count < 100)
-            //            {
-            //                parameter = (j+i)/10;
-            //                byteImageMatrix[parameter] = 1;
-            //                j = 100;
-            //            }
-            //        }
-            //        count++;
-            //    }
-            //}
-            for (int i = 0; i < byteImage.Length-4; i=i+5)
+            double[] byteImageMatrix = new double[100];
+
+            for (int i = 0; i < byteImage.Length-4; i=i+100)
             {
-                for (int j = 0; j < 5; j++)
+                for (int j = 0; j < 100; j++)
                 {
 
-                    if (byteImage[j + i] == 1 && count<625)
+                    if (byteImage[j + i] == 1 && count<99)
                     {
                         byteImageMatrix[count] = 1;
-                        j = 5;
+                        j = 100;
                     }
 
                 }

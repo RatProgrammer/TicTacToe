@@ -10,6 +10,7 @@ namespace TicTacToe.Model.DrawModel
         private Bitmap _crossBitmap;
         private Bitmap _circleBitmap;
         private Bitmap _blankBitmap;
+        private Bitmap _result;
 
         public LearningCanvas()
         {
@@ -17,6 +18,7 @@ namespace TicTacToe.Model.DrawModel
             _crossBitmap = new Bitmap(100, 100);
             _circleBitmap = new Bitmap(100, 100);
             _blankBitmap = new Bitmap(100, 100);
+            _result = new Bitmap(100, 100);
         }
 
         public void UpdateCanvas(Bitmap bitmap, CanvasType canvasType)
@@ -34,6 +36,9 @@ namespace TicTacToe.Model.DrawModel
                     break;
                 case CanvasType.pcTest:
                     _testBitmap = new Bitmap(bitmap); ;
+                    break;
+                case CanvasType.pcResult:
+                    _result = new Bitmap(bitmap);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(canvasType), canvasType, null);
@@ -54,6 +59,8 @@ namespace TicTacToe.Model.DrawModel
                     return new Bitmap(_blankBitmap);
                 case CanvasType.pcTest:
                     return new Bitmap(_testBitmap);
+                case CanvasType.pcResult:
+                    return new Bitmap(_result);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(canvasType), canvasType, null);
             }

@@ -69,6 +69,8 @@
     <Compile Include="Model\DrawModel\DesignateCross.cs" />
     <Compile Include="Model\DrawModel\LearningCanvas.cs" />
     <Compile Include="Model\LearningContainer.cs" />
+    <Compile Include="Model\NeuralModel\NetworkLearning.cs" />
+    <Compile Include="Model\NeuralModel\NetworkTesting.cs" />
     <Compile Include="Model\Utility\EnumUtil.cs" />
     <Compile Include="View\CanvasType.cs" />
     <Compile Include="View\Form1.cs">
@@ -111,7 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\LearnModel\" />
-    <Folder Include="Model\NeuralModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

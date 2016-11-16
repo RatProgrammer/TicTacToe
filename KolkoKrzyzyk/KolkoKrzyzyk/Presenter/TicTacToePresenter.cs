@@ -407,6 +407,7 @@ namespace TicTacToe.Presenter
             //_network = (ActivationNetwork)ActivationNetwork.Load("Net.bin");
 
             //MessageBox.Show("Skończona nauka");
+
         }
 
         private void ExecuteStopPaintAction(Point point, CanvasType canvasType)

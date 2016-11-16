@@ -20,7 +20,7 @@ namespace TicTacToe.Model.NeuralModel
 
             var blankImage = learningContainer.GetChromaticImage(CanvasType.pcBlank);
             double[] blankInput = blankImage.GetChromaticImage();
-            double[][] input = new double[21][]
+            double[][] input = new double[22][]
             {
                 crossInput,
                 circleInput,
@@ -104,19 +104,19 @@ namespace TicTacToe.Model.NeuralModel
                     0, 1, 0, 0, 0, 0, 0, 1, 1, 0,
                     0, 0, 0, 0, 0, 0, 0, 0, 1, 1
                 },
-                new double[]
-                {
-                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, //blank
-                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1
-                },
+                //new double[]
+                //{
+                //    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, //blank
+                //    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                //    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                //    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                //    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                //    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                //    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                //    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                //    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                //    1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                //},
                 new double[]
                 {
                     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, //blank
@@ -273,9 +273,36 @@ namespace TicTacToe.Model.NeuralModel
                     0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0
                 },
+                new double[]
+                {
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //circle
+                    0, 0, 1, 1, 1, 1, 0, 0, 0, 0,
+                    0, 1, 1, 0, 1, 1, 1, 0, 0, 0,
+                    0, 1, 0, 0, 0, 0, 0, 1, 0, 0,
+                    0, 1, 1, 0, 0, 0, 1, 1, 1, 0,
+                    0, 1, 1, 0, 0, 0, 1, 1, 0, 0,
+                    0, 0, 1, 0, 0, 0, 1, 1, 0, 0,
+                    0, 0, 0, 1, 1, 1, 1, 0, 0, 0,
+                    0, 0, 0, 1, 1, 1, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                },
+                new double[]
+                {
+                    1, 0, 0, 0, 0, 0, 0, 0, 0, 1, //cross
+                    0, 1, 0, 0, 0, 0, 0, 0, 1, 1,
+                    0, 0, 1, 0, 0, 0, 0, 0, 1, 0,
+                    0, 0, 0, 1, 0, 0, 0, 1, 0, 0,
+                    0, 0, 0, 1, 1, 1, 1, 0, 0, 0,
+                    0, 0, 0, 1, 1, 1, 1, 0, 0, 0,
+                    0, 0, 1, 0, 0, 0, 0, 1, 0, 0,
+                    0, 1, 0, 0, 0, 0, 0, 0, 1, 0,
+                    1, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+                    1, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                },
+
 
             };
-            double[][] output = new double[21][]
+            double[][] output = new double[22][]
             {
                 //8 cross 8 circle 6 blank
                 new double[] {1, 0}, //cross
@@ -287,7 +314,7 @@ namespace TicTacToe.Model.NeuralModel
                 new double[] {1, 0}, //cross
                 new double[] {1, 0}, //cross
                 new double[] {1, 0}, //cross
-                new double[] {0, 0}, //blank
+                //new double[] {0, 0}, //blank
                 new double[] {0, 0}, //blank
                 //new double[] {0, 0}, //blank
                 new double[] {0, 1}, //circle
@@ -300,6 +327,8 @@ namespace TicTacToe.Model.NeuralModel
                 new double[] {1, 0}, //cross
                 new double[] {1, 0}, //cross
                 new double[] {0, 1}, //circle
+                new double[] {0, 1}, //circle
+                new double[] {1, 0}, //cross
             };
 
             for (int i = 0; i < 100000; i++)

@@ -56,8 +56,7 @@ namespace TicTacToe.Model
 
         private static double[] ConvertToOneSize(double[,] byteImageMatrix)
         {
-            double[] matrix = byteImageMatrix.Cast<double>().ToArray(); //new double[100];
-            //Buffer.BlockCopy(byteImageMatrix,0,matrix,0,byteImageMatrix.Length);
+            double[] matrix = byteImageMatrix.Cast<double>().ToArray();
             return matrix;
         }
     }

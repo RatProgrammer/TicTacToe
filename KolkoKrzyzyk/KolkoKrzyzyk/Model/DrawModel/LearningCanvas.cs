@@ -45,8 +45,6 @@ namespace TicTacToe.Model.DrawModel
             }
         }
 
-
-
         public Bitmap GetCanvas (CanvasType canvasType)
         {
             switch (canvasType)

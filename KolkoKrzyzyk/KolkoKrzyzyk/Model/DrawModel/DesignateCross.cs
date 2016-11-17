@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using TicTacToe.View;
 
 namespace TicTacToe.Model.DrawModel
 {
@@ -31,6 +32,14 @@ namespace TicTacToe.Model.DrawModel
                 }
             }
             return _points;
+        }
+
+        public Bitmap DrawCross(LearningCanvas learningCanvas, MyPen myPen)
+        {
+            List<Point> points = Designate();
+            Bitmap currentBitmap = myPen.DrawShape(points, learningCanvas.GetCanvas(CanvasType.pcCross));
+            learningCanvas.UpdateCanvas(currentBitmap, CanvasType.pcCross);
+            return currentBitmap;
         }
     }
 }

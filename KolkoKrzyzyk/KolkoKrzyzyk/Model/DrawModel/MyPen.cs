@@ -33,7 +33,6 @@ namespace TicTacToe.Model.DrawModel
             Point startPoint = point;
             using (_graphics = Graphics.FromImage(current))
             {
-                //_graphics.DrawLine(_pen, startPoint, _previousPoint);
                 _graphics.DrawEllipse(_pen, point.X, point.Y, 5, 5);
             }
             _previousPoint = point;

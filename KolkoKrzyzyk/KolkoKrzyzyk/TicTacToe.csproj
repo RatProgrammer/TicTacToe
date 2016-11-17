@@ -69,7 +69,9 @@
     <Compile Include="Model\DrawModel\DesignateCross.cs" />
     <Compile Include="Model\DrawModel\LearningCanvas.cs" />
     <Compile Include="Model\LearningContainer.cs" />
+    <Compile Include="Model\NeuralModel\NetworkInput.cs" />
     <Compile Include="Model\NeuralModel\NetworkLearning.cs" />
+    <Compile Include="Model\NeuralModel\NetworkOutput.cs" />
     <Compile Include="Model\NeuralModel\NetworkTesting.cs" />
     <Compile Include="Model\Utility\EnumUtil.cs" />
     <Compile Include="View\CanvasType.cs" />

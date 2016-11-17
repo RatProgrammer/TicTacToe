@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using TicTacToe.View;
 
 namespace TicTacToe.Model.DrawModel
 {
@@ -35,6 +36,13 @@ namespace TicTacToe.Model.DrawModel
                 _points.Add(p);
             }
             return _points;
+        }
+        public Bitmap DrawCircle(LearningCanvas learningCanvas, MyPen myPen)
+        {
+            List<Point> points = Designate();
+            Bitmap currentBitmap = myPen.DrawShape(points, learningCanvas.GetCanvas(CanvasType.pcCircle));
+            learningCanvas.UpdateCanvas(currentBitmap, CanvasType.pcCircle);
+            return currentBitmap;
         }
     }
 }

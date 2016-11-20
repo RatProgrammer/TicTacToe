@@ -101,9 +101,9 @@ namespace TicTacToe.View
 
         public void UpdateCanvasResult(Bitmap currentBitmap)
         {
-            pcBlank.Image = currentBitmap;
-            pcBlank.Invalidate();
-            pcBlank.Refresh();
+            pcResult.Image = currentBitmap;
+            pcResult.Invalidate();
+            pcResult.Refresh();
         }
 
         private void btUcz_Click(object sender, EventArgs e)

@@ -17,15 +17,6 @@ D:\Inżynieria Biomedyczna\Biocybernetyka - projekt\KolkoKrzyzyk\KolkoKrzyzyk\Ko
 D:\Inżynieria Biomedyczna\Biocybernetyka - projekt\KolkoKrzyzyk\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.Form1.resources
 D:\Inżynieria Biomedyczna\Biocybernetyka - projekt\KolkoKrzyzyk\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.Properties.Resources.resources
 D:\Inżynieria Biomedyczna\Biocybernetyka - projekt\KolkoKrzyzyk\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.csproj.GenerateResource.Cache
-C:\Users\Aleksanra\Desktop\KolkoKrzyzyk\KolkoKrzyzyk\bin\Debug\KolkoKrzyzyk.exe.config
-C:\Users\Aleksanra\Desktop\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.exe
-C:\Users\Aleksanra\Desktop\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.pdb
-C:\Users\Aleksanra\Desktop\KolkoKrzyzyk\KolkoKrzyzyk\bin\Debug\KolkoKrzyzyk.exe
-C:\Users\Aleksanra\Desktop\KolkoKrzyzyk\KolkoKrzyzyk\bin\Debug\KolkoKrzyzyk.pdb
-C:\Users\Aleksanra\Desktop\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.csprojResolveAssemblyReference.cache
-C:\Users\Aleksanra\Desktop\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.TicTacToe.resources
-C:\Users\Aleksanra\Desktop\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.Properties.Resources.resources
-C:\Users\Aleksanra\Desktop\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.csproj.GenerateResource.Cache
 C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.TicTacToe.resources
 C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.Properties.Resources.resources
 C:\Users\Aleksanra\Documents\TicTacToe\KolkoKrzyzyk\KolkoKrzyzyk\obj\Debug\KolkoKrzyzyk.csproj.GenerateResource.Cache

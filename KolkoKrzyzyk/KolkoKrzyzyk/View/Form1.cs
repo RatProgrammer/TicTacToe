@@ -165,5 +165,11 @@ namespace TicTacToe.View
         {
             CircleAction?.Invoke();
         }
+
+        public void ShowMessage(string text)
+        {
+            lbInformation.Text = text;
+            this.Update();
+        }
     }
 }

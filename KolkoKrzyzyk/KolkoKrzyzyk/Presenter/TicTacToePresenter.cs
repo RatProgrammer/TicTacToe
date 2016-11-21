@@ -53,9 +53,11 @@ namespace TicTacToe.Presenter
         }
 
         private void ExecuteLearnAction()
-        {
+        { 
+            _ticTacToe.ShowMessage("Trwa nauka. \n Proszę czekać.");
             NetworkLearning networkLearning = new NetworkLearning();
             networkLearning.Learn(_learningContainer, _learningCanvas, ref _network, ref _teacher);
+            _ticTacToe.ShowMessage("");
         }
         private void ExecuteStartPaintAction(Point point, CanvasType canvasType)
         {

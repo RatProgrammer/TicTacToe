@@ -62,7 +62,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.progressBLearning = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblWyjscieKrzyzyk = new System.Windows.Forms.Label();
@@ -81,6 +80,7 @@
             this.lblRezultat = new System.Windows.Forms.Label();
             this.lblTestowanie = new System.Windows.Forms.Label();
             this.lblNaukaWzorow = new System.Windows.Forms.Label();
+            this.lbInformation = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcMatrix33)).BeginInit();
@@ -295,6 +295,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage2.Controls.Add(this.lbInformation);
             this.tabPage2.Controls.Add(this.pcResult);
             this.tabPage2.Controls.Add(this.pcTest);
             this.tabPage2.Controls.Add(this.pcBlank);
@@ -309,7 +310,6 @@
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.progressBLearning);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.lblWyjscieKrzyzyk);
@@ -462,13 +462,6 @@
             this.label4.TabIndex = 26;
             this.label4.Text = "1";
             // 
-            // progressBLearning
-            // 
-            this.progressBLearning.Location = new System.Drawing.Point(373, 103);
-            this.progressBLearning.Name = "progressBLearning";
-            this.progressBLearning.Size = new System.Drawing.Size(83, 23);
-            this.progressBLearning.TabIndex = 25;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -501,7 +494,7 @@
             // 
             // btUcz
             // 
-            this.btUcz.Location = new System.Drawing.Point(373, 140);
+            this.btUcz.Location = new System.Drawing.Point(375, 101);
             this.btUcz.Margin = new System.Windows.Forms.Padding(2);
             this.btUcz.Name = "btUcz";
             this.btUcz.Size = new System.Drawing.Size(83, 41);
@@ -570,7 +563,7 @@
             this.btKopiujPusty.Location = new System.Drawing.Point(270, 222);
             this.btKopiujPusty.Margin = new System.Windows.Forms.Padding(2);
             this.btKopiujPusty.Name = "btKopiujPusty";
-            this.btKopiujPusty.Size = new System.Drawing.Size(93, 21);
+            this.btKopiujPusty.Size = new System.Drawing.Size(101, 21);
             this.btKopiujPusty.TabIndex = 9;
             this.btKopiujPusty.Text = "Kopiuj do testów";
             this.btKopiujPusty.UseVisualStyleBackColor = true;
@@ -661,6 +654,14 @@
             this.lblNaukaWzorow.TabIndex = 0;
             this.lblNaukaWzorow.Text = "Nauka Wzorów";
             // 
+            // lbInformation
+            // 
+            this.lbInformation.AutoSize = true;
+            this.lbInformation.Location = new System.Drawing.Point(342, 299);
+            this.lbInformation.Name = "lbInformation";
+            this.lbInformation.Size = new System.Drawing.Size(0, 13);
+            this.lbInformation.TabIndex = 40;
+            // 
             // TicTacToe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -725,7 +726,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblWyjscieKrzyzyk;
-        private System.Windows.Forms.ProgressBar progressBLearning;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -749,6 +749,7 @@
         private System.Windows.Forms.PictureBox pcBlank;
         private System.Windows.Forms.PictureBox pcCircle;
         private System.Windows.Forms.PictureBox pcCross;
+        private System.Windows.Forms.Label lbInformation;
     }
 }
 

@@ -42,7 +42,6 @@ namespace TicTacToe.Model.NeuralModel
                 MessageBox.Show("Skończony test");
                 return _currentBitmap;
             }
-            MessageBox.Show("Skończony test");
         }
     }
 }

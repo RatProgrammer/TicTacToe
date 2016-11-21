@@ -70,7 +70,7 @@
     <Compile Include="Model\DrawModel\LearningCanvas.cs" />
     <Compile Include="Model\LearningContainer.cs" />
     <Compile Include="Model\NeuralModel\NetworkInput.cs" />
-    <Compile Include="Model\NeuralModel\NetworkLearning.cs" />
+    <Compile Include="Model\LearnModel\NetworkLearning.cs" />
     <Compile Include="Model\NeuralModel\NetworkOutput.cs" />
     <Compile Include="Model\NeuralModel\NetworkTesting.cs" />
     <Compile Include="Model\Utility\EnumUtil.cs" />
@@ -113,9 +113,7 @@
   <ItemGroup>
     <None Include="View\App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\LearnModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

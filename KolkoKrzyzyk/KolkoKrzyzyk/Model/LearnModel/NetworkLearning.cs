@@ -2,23 +2,24 @@
 using AForge.Neuro;
 using AForge.Neuro.Learning;
 using TicTacToe.Model.DrawModel;
+using TicTacToe.Model.NeuralModel;
 using TicTacToe.View;
 
-namespace TicTacToe.Model.NeuralModel
+namespace TicTacToe.Model.LearnModel
 {
     class NetworkLearning
     {
         public void Learn(LearningContainer learningContainer,LearningCanvas learningCanvas,ref ActivationNetwork network, ref BackPropagationLearning teacher)
         {
             learningContainer.SetChromaticImage(learningCanvas);
-            var crossImage = learningContainer.GetChromaticImage(CanvasType.pcCross);
+            var crossImage = learningContainer.GetChromaticImage(CanvasType.Cross);
             double[] crossInput = crossImage.GetChromaticImage();
 
-            var circleImage = learningContainer.GetChromaticImage(CanvasType.pcCircle);
+            var circleImage = learningContainer.GetChromaticImage(CanvasType.Circle);
             double[] circleInput = circleImage.GetChromaticImage();
 
 
-            var blankImage = learningContainer.GetChromaticImage(CanvasType.pcBlank);
+            var blankImage = learningContainer.GetChromaticImage(CanvasType.Blank);
             double[] blankInput = blankImage.GetChromaticImage();
            
             NetworkInput networkInput = new NetworkInput(crossInput,circleInput,blankInput);

@@ -37,8 +37,8 @@ namespace TicTacToe.Model.DrawModel
         public Bitmap DrawCross(LearningCanvas learningCanvas, MyPen myPen)
         {
             List<Point> points = Designate();
-            Bitmap currentBitmap = myPen.DrawShape(points, learningCanvas.GetCanvas(CanvasType.pcCross));
-            learningCanvas.UpdateCanvas(currentBitmap, CanvasType.pcCross);
+            Bitmap currentBitmap = myPen.DrawCross(points, learningCanvas.GetCanvas(CanvasType.Result));
+            learningCanvas.UpdateCanvas(currentBitmap, CanvasType.Cross);
             return currentBitmap;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using TicTacToe.Model.DrawModel;
 using TicTacToe.View;
 
@@ -13,23 +14,23 @@ namespace TicTacToe.Model
 
         public void SetChromaticImage(LearningCanvas learningCanvas)
         {
-            _chromaticImageCross = new ChromaticImage(Convert(CanvasType.pcCross, learningCanvas));
-            _chromaticImageCircle = new ChromaticImage(Convert(CanvasType.pcCircle, learningCanvas));
-            _chromaticImageBlank = new ChromaticImage(Convert(CanvasType.pcBlank, learningCanvas));
-            _chromaticImageTest = new ChromaticImage(Convert(CanvasType.pcTest, learningCanvas));
+            _chromaticImageCross = new ChromaticImage(Convert(CanvasType.Cross, learningCanvas));
+            _chromaticImageCircle = new ChromaticImage(Convert(CanvasType.Circle, learningCanvas));
+            _chromaticImageBlank = new ChromaticImage(Convert(CanvasType.Blank, learningCanvas));
+            _chromaticImageTest = new ChromaticImage(Convert(CanvasType.Test, learningCanvas));
         }
 
         public ChromaticImage GetChromaticImage(CanvasType canvasType)
         {
             switch (canvasType)
             {
-                case CanvasType.pcCross:
+                case CanvasType.Cross:
                     return _chromaticImageCross;
-                case CanvasType.pcCircle:
+                case CanvasType.Circle:
                     return _chromaticImageCircle;
-                case CanvasType.pcBlank:
+                case CanvasType.Blank:
                     return _chromaticImageBlank;
-                case CanvasType.pcTest:
+                case CanvasType.Test:
                     return _chromaticImageTest;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(canvasType), canvasType, null);

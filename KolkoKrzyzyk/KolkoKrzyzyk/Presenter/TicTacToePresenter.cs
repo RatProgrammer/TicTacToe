@@ -6,6 +6,7 @@ using AForge.Neuro;
 using AForge.Neuro.Learning;
 using TicTacToe.Model;
 using TicTacToe.Model.DrawModel;
+using TicTacToe.Model.LearnModel;
 using TicTacToe.Model.NeuralModel;
 using TicTacToe.View;
 
@@ -49,7 +50,7 @@ namespace TicTacToe.Presenter
         {
             NetworkTesting networkTesting = new NetworkTesting();
             var currentBitmap = networkTesting.Test(ref _learningContainer,  _learningCanvas, ref _network, _myPen, ref _teacher);
-            UpdateCanvas(currentBitmap, CanvasType.pcResult);
+            UpdateCanvas(currentBitmap, CanvasType.Result);
         }
 
         private void ExecuteLearnAction()
@@ -90,25 +91,24 @@ namespace TicTacToe.Presenter
         }
         private void ExecuteCopyAction(CanvasType canvasType)
         {
-            var currentBitmap = _learningCanvas.GetCanvas(canvasType);
-            _learningCanvas.UpdateCanvas(currentBitmap, CanvasType.pcTest);
-            UpdateCanvas(currentBitmap, CanvasType.pcTest);
+            var currentBitmap = _learningCanvas.GetCanvas(CanvasType.Test);
+            _learningCanvas.UpdateCanvas(currentBitmap, canvasType);
+            UpdateCanvas(currentBitmap, canvasType);
         }
 
         private void ExecuteCrossAction()
         {
             var currentBitmap = _designateCross.DrawCross(_learningCanvas, _myPen);
-            UpdateCanvas(currentBitmap, CanvasType.pcCross);
+            UpdateCanvas(currentBitmap, CanvasType.Cross);
         }
         private void ExecuteCircleAction()
         {
             var currentBitmap = _designateCircle.DrawCircle(_learningCanvas, _myPen);
-            UpdateCanvas(currentBitmap, CanvasType.pcCircle);
+            UpdateCanvas(currentBitmap, CanvasType.Circle);
         }
         public void RunApp()
         {
             Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(_ticTacToe);
         }
 
@@ -116,19 +116,19 @@ namespace TicTacToe.Presenter
         {
             switch (canvasType)
             {
-                case CanvasType.pcCross:
+                case CanvasType.Cross:
                     _ticTacToe.UpdateCanvasCross(bitmap);
                     break;
-                case CanvasType.pcCircle:
+                case CanvasType.Circle:
                     _ticTacToe.UpdateCanvasCircle(bitmap);
                     break;
-                case CanvasType.pcBlank:
+                case CanvasType.Blank:
                     _ticTacToe.UpdateCanvasBlank(bitmap);
                     break;
-                case CanvasType.pcTest:
+                case CanvasType.Test:
                     _ticTacToe.UpdateCanvasTest(bitmap);
                     break;
-                case CanvasType.pcResult:
+                case CanvasType.Result:
                     _ticTacToe.UpdateCanvasResult(bitmap);
                     break;
                 default:

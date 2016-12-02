@@ -38,14 +38,22 @@ namespace TicTacToe.Model.DrawModel
             _previousPoint = point;
         }
 
-        public Bitmap DrawShape(List<Point> points, Bitmap bitmap)
+        public Bitmap DrawCross(List<Point> points, Bitmap bitmap)
         {
             using (_graphics = Graphics.FromImage(bitmap))
             {
                 for (int i = 0; i < points.Count; i++)
                 {
-                    _graphics.DrawEllipse(_pen, points.ElementAt(i).X, points.ElementAt(i).Y,5,5);
+                    _graphics.DrawEllipse(_pen, points.ElementAt(i).X, points.ElementAt(i).Y, 5, 5);
                 }
+                return bitmap;
+            }
+        }
+        public Bitmap DrawCircle(Bitmap bitmap)
+        {
+            using (_graphics = Graphics.FromImage(bitmap))
+            {
+                _graphics.DrawEllipse(_pen, 50 - 45, 50 - 45, 45+45, 45+45);
                 return bitmap;
             }
         }

@@ -2,10 +2,10 @@
 {
     public enum CanvasType
     {
-        pcCross,
-        pcCircle,
-        pcBlank,
-        pcTest,
-        pcResult
+        Cross,
+        Circle,
+        Blank,
+        Test,
+        Result
     }
 }

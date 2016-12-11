@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Windows.Forms;
 using AForge.Neuro;
 using AForge.Neuro.Learning;
 using TicTacToe.Model;
+using TicTacToe.Model.Canvases;
+using TicTacToe.Model.Commands;
 using TicTacToe.Model.DrawModel;
 using TicTacToe.Model.LearnModel;
 using TicTacToe.Model.NeuralModel;
@@ -14,128 +14,135 @@ namespace TicTacToe.Presenter
 {
     class TicTacToePresenter
     {
-        private readonly View.TicTacToe _ticTacToe;
-        private readonly MyPen _myPen;
-        private  readonly LearningCanvas _learningCanvas;
-        private readonly ChromaticImage _chromaticImage;
-        private LearningContainer _learningContainer;
+        private readonly TicTacToeForm _ticTacToeForm;
+        private  readonly LearnCanvasContainer _learnCanvasContainer;
         private ActivationNetwork _network;
-        private BackPropagationLearning _teacher;
-        private readonly DesignateCircle _designateCircle;
-        private readonly DesignateCross _designateCross;
-
-        public TicTacToePresenter(View.TicTacToe ticTacToe)
+        private BackPropagationLearning _teacher;               
+        private IPainterCommand _painterCommand;
+        private Pen _pen;
+        private CrossDesignator _crossDesignator;
+        public TicTacToePresenter(TicTacToeForm ticTacToeForm)
         {
-            _ticTacToe = ticTacToe;
-            _myPen = new MyPen();
-            _designateCircle = new DesignateCircle();
-            _designateCross = new DesignateCross();
-            _learningCanvas = new LearningCanvas();
-            _learningContainer = new LearningContainer();
+            _ticTacToeForm = ticTacToeForm;
+            _learnCanvasContainer = new LearnCanvasContainer();
             _network = new ActivationNetwork(new SigmoidFunction(2), 100, 14, 2);
-            _teacher = new BackPropagationLearning((ActivationNetwork)_network);
-            _ticTacToe.StartPaintAction += ExecuteStartPaintAction;
-            _ticTacToe.MovePaintAction += ExecuteMovePaintAction;
-            _ticTacToe.StopPaintAction += ExecuteStopPaintAction;
-            _ticTacToe.LearnAction += ExecuteLearnAction;
-            _ticTacToe.CrossAction += ExecuteCrossAction;
-            _ticTacToe.CircleAction += ExecuteCircleAction;
-            _ticTacToe.ClearAction += ExecuteClearAction;
-            _ticTacToe.CopyAction += ExecuteCopyAction;
-            _ticTacToe.TestAction += ExecuteTestAction;
+            _teacher = new BackPropagationLearning(_network);
+            _pen = new Pen(Color.Black, 5);
+            _crossDesignator = new CrossDesignator();
+
+            _ticTacToeForm.DrawLearnWindowAction += DrawOnLearnWindow;
+            _ticTacToeForm.LearnAction += ExecuteLearnAction;
+            _ticTacToeForm.CrossAction += ExecuteCrossAction;
+            _ticTacToeForm.CircleAction += ExecuteCircleAction;
+            _ticTacToeForm.ClearAction += ExecuteClearAction;
+            _ticTacToeForm.CopyAction += ExecuteCopyAction;
+            _ticTacToeForm.TestAction += ExecuteTestAction;
         }
 
+        private void DrawOnLearnWindow(Point point, LearnCanvasType learnCanvasType)
+        {
+            _painterCommand = new DrawPointCommand(point, _pen);
+            _learnCanvasContainer.DrawOnCanvas(learnCanvasType, _painterCommand);
+            UpdateCanvasView(learnCanvasType);
+        }
 
         private void ExecuteTestAction()
         {
-            NetworkTesting networkTesting = new NetworkTesting();
-            var currentBitmap = networkTesting.Test(ref _learningContainer,  _learningCanvas, ref _network, _myPen, ref _teacher);
-            UpdateCanvas(currentBitmap, CanvasType.Result);
+            _learnCanvasContainer.ClearCanvas(LearnCanvasType.Result);
+            LoadNetworkFromFile();
+            NetworkTester networkTester = new NetworkTester(_network);
+            var inputData = PreaperNetworkInput(LearnCanvasType.Test);
+            GameMark gameMark = networkTester.Test(inputData);
+            if (gameMark == GameMark.Circle)
+            {
+                _painterCommand = new DrawCircleCommand(_pen);
+                _learnCanvasContainer.DrawOnCanvas(LearnCanvasType.Result, _painterCommand);
+            }
+            if (gameMark == GameMark.Cross)
+            {
+                _painterCommand = new DrawCrossCommand(_pen,_crossDesignator);
+                _learnCanvasContainer.DrawOnCanvas(LearnCanvasType.Result, _painterCommand);
+            }
+            UpdateCanvasView(LearnCanvasType.Result);
         }
 
         private void ExecuteLearnAction()
         { 
-            _ticTacToe.ShowMessage("Trwa nauka. \n Proszę czekać.");
-            NetworkLearning networkLearning = new NetworkLearning();
-            networkLearning.Learn(_learningContainer, _learningCanvas, ref _network, ref _teacher);
-            _ticTacToe.ShowMessage("");
-        }
-        private void ExecuteStartPaintAction(Point point, CanvasType canvasType)
-        {
-            var currentBitmap = _learningCanvas.GetCanvas(canvasType);
-            _myPen.ExecuteStart(ref currentBitmap, point);
-            _learningCanvas.UpdateCanvas(currentBitmap, canvasType);
-            UpdateCanvas(currentBitmap, canvasType);
+            _ticTacToeForm.ShowMessage("Trwa nauka. \n Proszę czekać.");
+            LoadNetworkFromFile();
+            NetworkLearning networkLearning = new NetworkLearning(_teacher, _network);
+            var crossInput = PreaperNetworkInput(LearnCanvasType.Cross);
+            var circleInput = PreaperNetworkInput(LearnCanvasType.Circle);
+            var blankInput = PreaperNetworkInput(LearnCanvasType.Blank);
+            networkLearning.Learn(crossInput, circleInput, blankInput);
+            _ticTacToeForm.ShowMessage("");
         }
 
-        private void ExecuteMovePaintAction(Point point, CanvasType canvasType)
+        private double[] PreaperNetworkInput(LearnCanvasType canvasType)
         {
-            var currentBitmap = _learningCanvas.GetCanvas(canvasType);
-                _myPen.ExecuteMove(ref currentBitmap, point);
-                _learningCanvas.UpdateCanvas(currentBitmap, canvasType);
-                UpdateCanvas(currentBitmap, canvasType);
-        }
-        private void ExecuteStopPaintAction(Point point, CanvasType canvasType)
-        {
-            var currentBitmap = _learningCanvas.GetCanvas(canvasType);
-            _myPen.ExecuteStop(ref currentBitmap, point);
-            _learningCanvas.UpdateCanvas(currentBitmap, canvasType);
-            UpdateCanvas(currentBitmap, canvasType);
+            var canvas = _learnCanvasContainer.GetCanvas(canvasType);
+            var input = BitmapConverter.ImageToByte(canvas.GetBitmap());
+            return input;
         }
 
-        private void ExecuteClearAction(CanvasType canvasType)
+        private void ExecuteClearAction(LearnCanvasType learnCanvasType)
         {
-            var currentBitmap = new Bitmap(100, 100);
-            _learningCanvas.UpdateCanvas(currentBitmap, canvasType);
-            UpdateCanvas(currentBitmap, canvasType);
+            _learnCanvasContainer.ClearCanvas(learnCanvasType);
+            UpdateCanvasView(learnCanvasType);
         }
-        private void ExecuteCopyAction(CanvasType canvasType)
+        private void ExecuteCopyAction(LearnCanvasType learnCanvasType)
         {
-            var currentBitmap = _learningCanvas.GetCanvas(CanvasType.Test);
-            _learningCanvas.UpdateCanvas(currentBitmap, canvasType);
-            UpdateCanvas(currentBitmap, canvasType);
+            var currentBitmap = _learnCanvasContainer.GetCanvas(LearnCanvasType.Test);
+            _learnCanvasContainer.UpdateCanvas(currentBitmap, learnCanvasType);
+            UpdateCanvasView(learnCanvasType);
         }
 
         private void ExecuteCrossAction()
         {
-            var currentBitmap = _designateCross.DrawCross(_learningCanvas, _myPen);
-            UpdateCanvas(currentBitmap, CanvasType.Cross);
+            _painterCommand = new DrawCrossCommand(_pen, _crossDesignator );
+            _learnCanvasContainer.DrawOnCanvas(LearnCanvasType.Cross, _painterCommand);
+            UpdateCanvasView(LearnCanvasType.Cross);
         }
         private void ExecuteCircleAction()
         {
-            var currentBitmap = _designateCircle.DrawCircle(_learningCanvas, _myPen);
-            UpdateCanvas(currentBitmap, CanvasType.Circle);
+            _painterCommand = new DrawCircleCommand(_pen);
+            _learnCanvasContainer.DrawOnCanvas(LearnCanvasType.Circle, _painterCommand);
+            UpdateCanvasView(LearnCanvasType.Circle);
         }
         public void RunApp()
         {
             Application.EnableVisualStyles();
-            Application.Run(_ticTacToe);
+            Application.Run(_ticTacToeForm);
         }
 
-        public void UpdateCanvas(Bitmap bitmap, CanvasType canvasType)
+        public void UpdateCanvasView(LearnCanvasType learnCanvasType)
         {
-            switch (canvasType)
+            var canvas = _learnCanvasContainer.GetCanvas(learnCanvasType);
+            var bitmap = canvas.GetBitmap();
+            switch (learnCanvasType)
             {
-                case CanvasType.Cross:
-                    _ticTacToe.UpdateCanvasCross(bitmap);
+                case LearnCanvasType.Cross:
+                    _ticTacToeForm.UpdateCanvasCross(bitmap);
                     break;
-                case CanvasType.Circle:
-                    _ticTacToe.UpdateCanvasCircle(bitmap);
+                case LearnCanvasType.Circle:
+                    _ticTacToeForm.UpdateCanvasCircle(bitmap);
                     break;
-                case CanvasType.Blank:
-                    _ticTacToe.UpdateCanvasBlank(bitmap);
+                case LearnCanvasType.Blank:
+                    _ticTacToeForm.UpdateCanvasBlank(bitmap);
                     break;
-                case CanvasType.Test:
-                    _ticTacToe.UpdateCanvasTest(bitmap);
+                case LearnCanvasType.Test:
+                    _ticTacToeForm.UpdateCanvasTest(bitmap);
                     break;
-                case CanvasType.Result:
-                    _ticTacToe.UpdateCanvasResult(bitmap);
+                case LearnCanvasType.Result:
+                    _ticTacToeForm.UpdateCanvasResult(bitmap);
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(canvasType), canvasType, null);
             }
         }
 
+        private void LoadNetworkFromFile()
+        {
+            _network = (ActivationNetwork)Network.Load("Net.bin");
+        }
 
     }
 }

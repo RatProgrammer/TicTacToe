@@ -1,4 +1,4 @@
-﻿namespace TicTacToe.Model
+﻿namespace TicTacToe.Model.Canvases
 {
     class ChromaticImage
     {

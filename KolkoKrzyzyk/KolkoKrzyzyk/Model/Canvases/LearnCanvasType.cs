@@ -1,6 +1,6 @@
-﻿namespace TicTacToe.View
+﻿namespace TicTacToe.Model.Canvases
 {
-    public enum CanvasType
+    public enum LearnCanvasType
     {
         Cross,
         Circle,

@@ -1,5 +1,6 @@
 ﻿using System;
 using TicTacToe.Presenter;
+using TicTacToe.View;
 
 namespace TicTacToe
 {
@@ -11,7 +12,7 @@ namespace TicTacToe
         [STAThread]
         static void Main()
         {
-            View.TicTacToe ticTacToe = new View.TicTacToe();
+            TicTacToeForm ticTacToe = new TicTacToeForm();
             TicTacToePresenter ticTacToePresenter = new TicTacToePresenter(ticTacToe);
             ticTacToePresenter.RunApp();
         }

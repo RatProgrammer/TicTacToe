@@ -1,72 +1,44 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using TicTacToe.Model.Canvases;
 using TicTacToe.Model.Utility;
 
 namespace TicTacToe.View
 {
-    public partial class TicTacToe : Form
+    public partial class TicTacToeForm : Form
     {
-        public event Action<Point, CanvasType> StartPaintAction;
-        public event Action<Point, CanvasType> StopPaintAction;
-        public event Action<Point, CanvasType> MovePaintAction;
+        public event Action<Point, LearnCanvasType> DrawLearnWindowAction;
+        public event Action<Point, GameCanvasType> DrawGameWindowAction;
         public event Action LearnAction;
         public event Action CrossAction;
         public event Action CircleAction;
-        public event Action<CanvasType> ClearAction;
-        public event Action<CanvasType> CopyAction;
+        public event Action<LearnCanvasType> ClearAction;
+        public event Action<LearnCanvasType> CopyAction;
         public event Action TestAction;
-        private CanvasType canvasType;
-        public TicTacToe()
+
+        public TicTacToeForm()
         {
             InitializeComponent();
-            InitCanvas();
         }
 
-        private void InitCanvas()
-        {
-            pbCross.MouseDown += canvas_StartPaint;
-            pbCross.MouseUp += canvas_StopPaint;
-            pbCross.MouseMove += canvas_MovePaint;
-            pbCircle.MouseDown += canvas_StartPaint;
-            pbCircle.MouseUp += canvas_StopPaint;
-            pbCircle.MouseMove += canvas_MovePaint;
-            pbTest.MouseDown += canvas_StartPaint;
-            pbTest.MouseUp += canvas_StopPaint;
-            pbTest.MouseMove += canvas_MovePaint;
-            pbBlank.MouseDown += canvas_StartPaint;
-            pbBlank.MouseUp += canvas_StopPaint;
-            pbBlank.MouseMove += canvas_MovePaint;
-        }
-
-        private void canvas_MovePaint(object sender,MouseEventArgs e)
+        private void canvas_DrawLearnWindow(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                PictureBox PictureBox = sender as PictureBox;
-                canvasType = EnumUtil.Parse<CanvasType>(PictureBox?.Name);
-                MovePaintAction?.Invoke(e.Location, canvasType);
-            }
-
-        }
-
-        private void canvas_StartPaint(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                PictureBox PictureBox = sender as PictureBox;
-                canvasType = EnumUtil.Parse<CanvasType>(PictureBox?.Name);
-                StartPaintAction?.Invoke(e.Location, canvasType);
+                PictureBox pictureBox = sender as PictureBox;
+                var canvasType = EnumUtil.Parse<LearnCanvasType>(pictureBox?.Name);
+                DrawLearnWindowAction?.Invoke(e.Location, canvasType);
             }
         }
 
-        private void canvas_StopPaint(object sender, MouseEventArgs e)
+        private void canvas_DrawGameWindow(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                PictureBox PictureBox = sender as PictureBox;
-                canvasType = EnumUtil.Parse<CanvasType>(PictureBox?.Name);
-                StopPaintAction?.Invoke(e.Location, canvasType);
+                PictureBox pictureBox = sender as PictureBox;
+                var canvasType = EnumUtil.Parse<GameCanvasType>(pictureBox?.Name);
+                DrawGameWindowAction?.Invoke(e.Location, canvasType);
             }
         }
 
@@ -76,7 +48,6 @@ namespace TicTacToe.View
             pbCross.Invalidate();
             pbCross.Refresh();
         }
-
 
         public void UpdateCanvasCircle(Bitmap currentBitmap)
         {
@@ -121,19 +92,19 @@ namespace TicTacToe.View
                 Button button = sender as Button;
             if (button.Name == btnCleanCross.Name)
             {
-                ClearAction?.Invoke(CanvasType.Cross);
+                ClearAction?.Invoke(LearnCanvasType.Cross);
             }
             if (button.Name == btnCleanCircle.Name)
             {
-                ClearAction?.Invoke(CanvasType.Circle);
+                ClearAction?.Invoke(LearnCanvasType.Circle);
             }
             if (button.Name == btnCleanBlank.Name)
             {
-                ClearAction?.Invoke(CanvasType.Blank);
+                ClearAction?.Invoke(LearnCanvasType.Blank);
             }
             if (button.Name == btnCleanTest.Name)
             {
-                ClearAction?.Invoke(CanvasType.Test);
+                ClearAction?.Invoke(LearnCanvasType.Test);
             }
 
         }
@@ -144,15 +115,15 @@ namespace TicTacToe.View
             Button button = sender as Button;
             if (button.Name == btnCoppyCross.Name)
             {
-                CopyAction?.Invoke(CanvasType.Cross);
+                CopyAction?.Invoke(LearnCanvasType.Cross);
             }
             if (button.Name == btnCoppyCircle.Name)
             {
-                CopyAction?.Invoke(CanvasType.Circle);
+                CopyAction?.Invoke(LearnCanvasType.Circle);
             }
             if (button.Name == btCoppyBlank.Name)
             {
-                CopyAction?.Invoke(CanvasType.Blank);
+                CopyAction?.Invoke(LearnCanvasType.Blank);
             }
         }
 

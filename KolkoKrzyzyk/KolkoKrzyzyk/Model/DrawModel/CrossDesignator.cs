@@ -4,11 +4,11 @@ using TicTacToe.View;
 
 namespace TicTacToe.Model.DrawModel
 {
-    class DesignateCross
+    class CrossDesignator
     {
         private readonly List<Point> _points;
 
-        public DesignateCross()
+        public CrossDesignator()
         {
             _points = new List<Point>();
         }
@@ -32,14 +32,6 @@ namespace TicTacToe.Model.DrawModel
                 }
             }
             return _points;
-        }
-
-        public Bitmap DrawCross(LearningCanvas learningCanvas, MyPen myPen)
-        {
-            List<Point> points = Designate();
-            Bitmap currentBitmap = myPen.DrawCross(points, learningCanvas.GetCanvas(CanvasType.Result));
-            learningCanvas.UpdateCanvas(currentBitmap, CanvasType.Cross);
-            return currentBitmap;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace TicTacToe.View
 {
-    partial class TicTacToe
+    partial class TicTacToeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -145,6 +145,9 @@
             this.pcMatrix33.Size = new System.Drawing.Size(100, 100);
             this.pcMatrix33.TabIndex = 22;
             this.pcMatrix33.TabStop = false;
+            this.pcMatrix33.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pcMatrix33.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pcMatrix33.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
             // 
             // pbMatrix32
             // 
@@ -154,6 +157,9 @@
             this.pbMatrix32.Size = new System.Drawing.Size(100, 100);
             this.pbMatrix32.TabIndex = 21;
             this.pbMatrix32.TabStop = false;
+            this.pbMatrix32.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix32.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix32.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
             // 
             // pbMatrix31
             // 
@@ -163,6 +169,9 @@
             this.pbMatrix31.Size = new System.Drawing.Size(100, 100);
             this.pbMatrix31.TabIndex = 20;
             this.pbMatrix31.TabStop = false;
+            this.pbMatrix31.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix31.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix31.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
             // 
             // pbMatrix23
             // 
@@ -172,6 +181,9 @@
             this.pbMatrix23.Size = new System.Drawing.Size(100, 100);
             this.pbMatrix23.TabIndex = 19;
             this.pbMatrix23.TabStop = false;
+            this.pbMatrix23.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix23.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix23.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
             // 
             // pbMatrix22
             // 
@@ -181,6 +193,9 @@
             this.pbMatrix22.Size = new System.Drawing.Size(100, 100);
             this.pbMatrix22.TabIndex = 18;
             this.pbMatrix22.TabStop = false;
+            this.pbMatrix22.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix22.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix22.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
             // 
             // pbMatrix21
             // 
@@ -190,6 +205,9 @@
             this.pbMatrix21.Size = new System.Drawing.Size(100, 100);
             this.pbMatrix21.TabIndex = 17;
             this.pbMatrix21.TabStop = false;
+            this.pbMatrix21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix21.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix21.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
             // 
             // pbMatrix13
             // 
@@ -199,6 +217,9 @@
             this.pbMatrix13.Size = new System.Drawing.Size(100, 100);
             this.pbMatrix13.TabIndex = 16;
             this.pbMatrix13.TabStop = false;
+            this.pbMatrix13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix13.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix13.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
             // 
             // pbMatrix12
             // 
@@ -208,6 +229,9 @@
             this.pbMatrix12.Size = new System.Drawing.Size(100, 100);
             this.pbMatrix12.TabIndex = 15;
             this.pbMatrix12.TabStop = false;
+            this.pbMatrix12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix12.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix12.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
             // 
             // pbMatrix11
             // 
@@ -217,6 +241,9 @@
             this.pbMatrix11.Size = new System.Drawing.Size(100, 100);
             this.pbMatrix11.TabIndex = 14;
             this.pbMatrix11.TabStop = false;
+            this.pbMatrix11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix11.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix11.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
             // 
             // btnNewGame
             // 
@@ -361,6 +388,9 @@
             this.pbTest.Size = new System.Drawing.Size(100, 100);
             this.pbTest.TabIndex = 38;
             this.pbTest.TabStop = false;
+            this.pbTest.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
+            this.pbTest.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
+            this.pbTest.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
             // 
             // pbBlank
             // 
@@ -370,6 +400,9 @@
             this.pbBlank.Size = new System.Drawing.Size(100, 100);
             this.pbBlank.TabIndex = 37;
             this.pbBlank.TabStop = false;
+            this.pbBlank.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
+            this.pbBlank.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
+            this.pbBlank.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
             // 
             // pbCircle
             // 
@@ -379,6 +412,9 @@
             this.pbCircle.Size = new System.Drawing.Size(100, 100);
             this.pbCircle.TabIndex = 36;
             this.pbCircle.TabStop = false;
+            this.pbCircle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
+            this.pbCircle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
+            this.pbCircle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
             // 
             // pbCross
             // 
@@ -388,6 +424,9 @@
             this.pbCross.Size = new System.Drawing.Size(100, 100);
             this.pbCross.TabIndex = 35;
             this.pbCross.TabStop = false;
+            this.pbCross.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
+            this.pbCross.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
+            this.pbCross.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
             // 
             // label12
             // 
@@ -662,14 +701,14 @@
             this.lblNaukaWzorow.TabIndex = 0;
             this.lblNaukaWzorow.Text = "Nauka Wzorów";
             // 
-            // TicTacToe
+            // TicTacToeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 462);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "TicTacToe";
+            this.Name = "TicTacToeForm";
             this.Text = "Kółko- krzyżyk";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

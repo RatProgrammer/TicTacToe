@@ -63,31 +63,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\BitmapConverter.cs" />
-    <Compile Include="Model\ChromaticImage.cs" />
-    <Compile Include="Model\DrawModel\DesignateCircle.cs" />
-    <Compile Include="Model\DrawModel\DesignateCross.cs" />
-    <Compile Include="Model\DrawModel\LearningCanvas.cs" />
-    <Compile Include="Model\LearningContainer.cs" />
+    <Compile Include="Model\Canvases\BitmapConverter.cs" />
+    <Compile Include="Model\Canvases\Canvas.cs" />
+    <Compile Include="Model\Canvases\ChromaticImage.cs" />
+    <Compile Include="Model\Canvases\GameCanvasType.cs" />
+    <Compile Include="Model\Commands\DrawCircleCommand.cs" />
+    <Compile Include="Model\Commands\DrawCrossCommand.cs" />
+    <Compile Include="Model\Commands\DrawPointCommand.cs" />
+    <Compile Include="Model\Commands\IPainterCommand.cs" />
+    <Compile Include="Model\DrawModel\CrossDesignator.cs" />
+    <Compile Include="Model\DrawModel\LearnCanvasContainer.cs" />
+    <Compile Include="Model\GameMark.cs" />
     <Compile Include="Model\NeuralModel\NetworkInput.cs" />
     <Compile Include="Model\LearnModel\NetworkLearning.cs" />
     <Compile Include="Model\NeuralModel\NetworkOutput.cs" />
-    <Compile Include="Model\NeuralModel\NetworkTesting.cs" />
+    <Compile Include="Model\NeuralModel\NetworkTester.cs" />
     <Compile Include="Model\Utility\EnumUtil.cs" />
-    <Compile Include="View\CanvasType.cs" />
-    <Compile Include="View\TicTacToe.cs">
+    <Compile Include="Model\Canvases\LearnCanvasType.cs" />
+    <Compile Include="View\TicTacToeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\TicTacToe.Designer.cs">
-      <DependentUpon>TicTacToe.cs</DependentUpon>
+    <Compile Include="View\TicTacToeForm.Designer.cs">
+      <DependentUpon>TicTacToeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\DrawModel\MyPen.cs" />
     <Compile Include="Model\GameModel\ComputerPlayer.cs" />
     <Compile Include="Presenter\TicTacToePresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="View\TicTacToe.resx">
-      <DependentUpon>TicTacToe.cs</DependentUpon>
+    <EmbeddedResource Include="View\TicTacToeForm.resx">
+      <DependentUpon>TicTacToeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

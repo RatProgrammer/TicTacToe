@@ -108,7 +108,7 @@ namespace TicTacToe.View
             CircleAction?.Invoke();
         }
 
-        public void ShowMessage(string text)
+        public void UpdateInformationLabel(string text)
         {
             lbInformation.Text = text;
             this.Update();
@@ -117,6 +117,11 @@ namespace TicTacToe.View
         private void btnPlay_Click(object sender, EventArgs e)
         {
             PlayAction?.Invoke();
+        }
+
+        public void ShowMessage(string message)
+        {
+            MessageBox.Show(message);
         }
     }
 }

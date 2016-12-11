@@ -9,6 +9,6 @@ namespace TicTacToe.Model.GameModel
         LittleDanger = 1, // małe zagrozenie
         VerySmallChance = 0, // bardzo mała okazja
         HumanPlayerWin = 3, // wygrana gracza
-        CoputerPlayerWin = 30 // wygrana komputera
+        ComputerPlayerWin = 30 // wygrana komputera
     }
 }

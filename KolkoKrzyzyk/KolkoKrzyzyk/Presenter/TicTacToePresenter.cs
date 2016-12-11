@@ -26,6 +26,7 @@ namespace TicTacToe.Presenter
         private IPainterCommand _painterCommand;
         private Pen _pen;
         private CrossDesignator _crossDesignator;
+        private Game _game;
         public TicTacToePresenter(TicTacToeForm ticTacToeForm)
         {
             _ticTacToeForm = ticTacToeForm;
@@ -35,6 +36,7 @@ namespace TicTacToe.Presenter
             _pen = new Pen(Color.Black, 5);
             _crossDesignator = new CrossDesignator();
             _network = (ActivationNetwork) Network.Load("Net.bin");
+            _game = new Game();
             _ticTacToeForm.DrawAction += Draw;
             _ticTacToeForm.LearnAction += ExecuteLearnAction;
             _ticTacToeForm.CrossAction += ExecuteCrossAction;
@@ -44,6 +46,26 @@ namespace TicTacToe.Presenter
             _ticTacToeForm.TestAction += ExecuteTestAction;
             _ticTacToeForm.NewGameAction += ExecuteNewGameAction;
             _ticTacToeForm.PlayAction += ExecutePlayAction;
+            _game.ComputerPlayerWinAction += ExecuteComputerPlayerWinAction;
+            _game.HumanPlayerWinAction += ExecuteHumanPlayerWinAction;
+            _game.DrawAction += ExecuteGameDrawAction;
+
+
+        }
+
+        private void ExecuteGameDrawAction()
+        {
+            _ticTacToeForm.ShowMessage("Draw");
+        }
+
+        private void ExecuteHumanPlayerWinAction()
+        {
+            _ticTacToeForm.ShowMessage("You win");
+        }
+
+        private void ExecuteComputerPlayerWinAction()
+        {
+            _ticTacToeForm.ShowMessage("You lost");
         }
 
         private void ExecutePlayAction()
@@ -57,12 +79,16 @@ namespace TicTacToe.Presenter
                 double[] chromaticCanvas = BitmapConverter.ImageToByte(canvas.GetBitmap());
                 result.Add(networkTester.Test(chromaticCanvas));
             }
-            Game game = new Game(result.Select(x => (int)x).ToArray());
-            var gameResult = game.CheckGame();
-            var matrix = list.ElementAt(gameResult);
-            _painterCommand = new DrawCrossCommand(_pen, _crossDesignator);
-            _canvasContainer.DrawOnCanvas(matrix, _painterCommand);
-            UpdateCanvasView(matrix);
+            
+            var gameResult = _game.CheckGame(result.Select(x => (int)x).ToArray());
+            if (gameResult > -1)
+            {
+                var matrix = list.ElementAt(gameResult);
+                _painterCommand = new DrawCrossCommand(_pen, _crossDesignator);
+                _canvasContainer.DrawOnCanvas(matrix, _painterCommand);
+                UpdateCanvasView(matrix);
+            }
+
         }
 
         private void ExecuteNewGameAction()
@@ -110,14 +136,14 @@ namespace TicTacToe.Presenter
 
         private void ExecuteLearnAction()
         { 
-            _ticTacToeForm.ShowMessage("Trwa nauka. \n Proszę czekać.");
+            _ticTacToeForm.UpdateInformationLabel("Trwa nauka. \n Proszę czekać.");
             LoadNetworkFromFile();
             NetworkLearning networkLearning = new NetworkLearning();
             var crossInput = PreaperNetworkInput(CanvasType.Cross);
             var circleInput = PreaperNetworkInput(CanvasType.Circle);
             var blankInput = PreaperNetworkInput(CanvasType.Blank);
             networkLearning.Learn(ref _network, crossInput, circleInput, blankInput);
-            _ticTacToeForm.ShowMessage("");
+            _ticTacToeForm.UpdateInformationLabel("");
         }
 
         private double[] PreaperNetworkInput(CanvasType canvasType)
@@ -169,6 +195,7 @@ namespace TicTacToe.Presenter
         {
             _network = (ActivationNetwork)Network.Load("Net.bin");
         }
+
 
     }
 }

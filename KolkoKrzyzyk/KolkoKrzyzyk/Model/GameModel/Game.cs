@@ -5,17 +5,14 @@ namespace TicTacToe.Model.GameModel
     public class Game
     {
         private int[][] _boardWinningLines;
-        private int[] _board;
         private int[] _lineStates;
-        private int[] stan;
+        private int[] _state;
+        public event Action HumanPlayerWinAction;
+        public event Action ComputerPlayerWinAction;
+        public event Action DrawAction;
 
-        /// <summary>
-        /// Konstruktor argumentowy inicjacja lini w pozycjach wygranych
-        /// </summary>
-        /// <param name="board">Przekazywana tablica z aktualnym rozegraniem na planszy</param> 
-        public Game(int[] board)
+        public Game()
         {
-            //linie wygrywające
             _boardWinningLines = new int[8][] 
             {   new int[] { 0, 1, 2 }, // 0
                 new int[] { 3, 4, 5 }, // 1
@@ -25,19 +22,12 @@ namespace TicTacToe.Model.GameModel
                 new int[] { 2, 5, 8 }, // 5
                 new int[] { 0, 4, 8 }, // 6
                 new int[] { 2, 4, 6 } }; //7
-            _board = new int[9];
-            //stan gry
-            _board = board;
             _lineStates = new int[8];
-            stan = new int[9];
-
+            _state = new int[9];
 
         }
-        /// <summary>
-        /// Metoda wyznaczająca kolejny ruch komputera
-        /// </summary>
-        /// <returns></returns>
-        public int CheckGame()
+
+        public int CheckGame(int[] board)
         {
             int sum = 0;
             for (int i = 0; i < _lineStates.Length; i++)
@@ -45,7 +35,7 @@ namespace TicTacToe.Model.GameModel
                 _lineStates[i] = 0;
                 for (int j = 0; j < _boardWinningLines[i].Length; j++)
                 {
-                    sum += _board[_boardWinningLines[i][j]];
+                    sum += board[_boardWinningLines[i][j]];
                 }
                 switch ((GameState)sum)
                 {
@@ -65,8 +55,10 @@ namespace TicTacToe.Model.GameModel
                         _lineStates[i] = 1;
                         break;
                     case GameState.HumanPlayerWin:
+                        HumanPlayerWinAction?.Invoke();
                         return -1;
-                    case GameState.CoputerPlayerWin:
+                    case GameState.ComputerPlayerWin:
+                        ComputerPlayerWinAction?.Invoke();
                         return -2;
                     default:
                         _lineStates[i] = 0;
@@ -76,24 +68,29 @@ namespace TicTacToe.Model.GameModel
                 sum = 0;
             }
 
-            this.stan[0] = _lineStates[0] + _lineStates[3] + _lineStates[6];
-            this.stan[1] = _lineStates[0] + _lineStates[4];
-            this.stan[2] = _lineStates[0] + _lineStates[5] + _lineStates[7];
-            this.stan[3] = _lineStates[1] + _lineStates[3];
-            this.stan[4] = _lineStates[4] + _lineStates[1] + _lineStates[6] + _lineStates[7];
-            this.stan[5] = _lineStates[1] + _lineStates[5];
-            this.stan[6] = _lineStates[2] + _lineStates[3] + _lineStates[7];
-            this.stan[7] = _lineStates[2] + _lineStates[4];
-            this.stan[8] = _lineStates[2] + _lineStates[5] + _lineStates[6];
+            _state[0] = _lineStates[0] + _lineStates[3] + _lineStates[6];
+            _state[1] = _lineStates[0] + _lineStates[4];
+            _state[2] = _lineStates[0] + _lineStates[5] + _lineStates[7];
+            _state[3] = _lineStates[1] + _lineStates[3];
+            _state[4] = _lineStates[4] + _lineStates[1] + _lineStates[6] + _lineStates[7];
+            _state[5] = _lineStates[1] + _lineStates[5];
+            _state[6] = _lineStates[2] + _lineStates[3] + _lineStates[7];
+            _state[7] = _lineStates[2] + _lineStates[4];
+            _state[8] = _lineStates[2] + _lineStates[5] + _lineStates[6];
             int max = -1;
             int field = -3;
-            for (int i = 0; i < stan.Length; i++)
+            for (int i = 0; i < _state.Length; i++)
             {
-                if (stan[i] > max && _board[i] == 0)
+                if (_state[i] > max && board[i] == 0)
                 {
-                    max = stan[i];
+                    max = _state[i];
                     field = i;
                 }
+            }
+
+            if (field == -3)
+            {
+                DrawAction?.Invoke();
             }
             return field;
         }

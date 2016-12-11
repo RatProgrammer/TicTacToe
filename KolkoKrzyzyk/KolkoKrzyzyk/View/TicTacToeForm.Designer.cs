@@ -30,7 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pcMatrix33 = new System.Windows.Forms.PictureBox();
+            this.pbMatrix33 = new System.Windows.Forms.PictureBox();
             this.pbMatrix32 = new System.Windows.Forms.PictureBox();
             this.pbMatrix31 = new System.Windows.Forms.PictureBox();
             this.pbMatrix23 = new System.Windows.Forms.PictureBox();
@@ -83,7 +83,7 @@
             this.lblNaukaWzorow = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix33)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMatrix33)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMatrix32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMatrix31)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMatrix23)).BeginInit();
@@ -115,7 +115,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Gainsboro;
-            this.tabPage1.Controls.Add(this.pcMatrix33);
+            this.tabPage1.Controls.Add(this.pbMatrix33);
             this.tabPage1.Controls.Add(this.pbMatrix32);
             this.tabPage1.Controls.Add(this.pbMatrix31);
             this.tabPage1.Controls.Add(this.pbMatrix23);
@@ -137,17 +137,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "GRA";
             // 
-            // pcMatrix33
+            // pbMatrix33
             // 
-            this.pcMatrix33.BackColor = System.Drawing.Color.White;
-            this.pcMatrix33.Location = new System.Drawing.Point(293, 274);
-            this.pcMatrix33.Name = "pcMatrix33";
-            this.pcMatrix33.Size = new System.Drawing.Size(100, 100);
-            this.pcMatrix33.TabIndex = 22;
-            this.pcMatrix33.TabStop = false;
-            this.pcMatrix33.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pcMatrix33.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pcMatrix33.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix33.BackColor = System.Drawing.Color.White;
+            this.pbMatrix33.Location = new System.Drawing.Point(293, 274);
+            this.pbMatrix33.Name = "pbMatrix33";
+            this.pbMatrix33.Size = new System.Drawing.Size(100, 100);
+            this.pbMatrix33.TabIndex = 22;
+            this.pbMatrix33.TabStop = false;
+            this.pbMatrix33.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix33.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix33.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
             // 
             // pbMatrix32
             // 
@@ -157,9 +157,9 @@
             this.pbMatrix32.Size = new System.Drawing.Size(100, 100);
             this.pbMatrix32.TabIndex = 21;
             this.pbMatrix32.TabStop = false;
-            this.pbMatrix32.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pbMatrix32.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pbMatrix32.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix32.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix32.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix32.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
             // 
             // pbMatrix31
             // 
@@ -169,9 +169,9 @@
             this.pbMatrix31.Size = new System.Drawing.Size(100, 100);
             this.pbMatrix31.TabIndex = 20;
             this.pbMatrix31.TabStop = false;
-            this.pbMatrix31.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pbMatrix31.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pbMatrix31.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix31.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix31.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix31.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
             // 
             // pbMatrix23
             // 
@@ -181,9 +181,9 @@
             this.pbMatrix23.Size = new System.Drawing.Size(100, 100);
             this.pbMatrix23.TabIndex = 19;
             this.pbMatrix23.TabStop = false;
-            this.pbMatrix23.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pbMatrix23.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pbMatrix23.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix23.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix23.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix23.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
             // 
             // pbMatrix22
             // 
@@ -193,9 +193,9 @@
             this.pbMatrix22.Size = new System.Drawing.Size(100, 100);
             this.pbMatrix22.TabIndex = 18;
             this.pbMatrix22.TabStop = false;
-            this.pbMatrix22.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pbMatrix22.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pbMatrix22.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix22.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix22.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix22.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
             // 
             // pbMatrix21
             // 
@@ -205,9 +205,9 @@
             this.pbMatrix21.Size = new System.Drawing.Size(100, 100);
             this.pbMatrix21.TabIndex = 17;
             this.pbMatrix21.TabStop = false;
-            this.pbMatrix21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pbMatrix21.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pbMatrix21.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix21.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix21.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
             // 
             // pbMatrix13
             // 
@@ -217,9 +217,9 @@
             this.pbMatrix13.Size = new System.Drawing.Size(100, 100);
             this.pbMatrix13.TabIndex = 16;
             this.pbMatrix13.TabStop = false;
-            this.pbMatrix13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pbMatrix13.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pbMatrix13.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix13.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix13.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
             // 
             // pbMatrix12
             // 
@@ -229,9 +229,9 @@
             this.pbMatrix12.Size = new System.Drawing.Size(100, 100);
             this.pbMatrix12.TabIndex = 15;
             this.pbMatrix12.TabStop = false;
-            this.pbMatrix12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pbMatrix12.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pbMatrix12.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix12.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix12.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
             // 
             // pbMatrix11
             // 
@@ -241,9 +241,9 @@
             this.pbMatrix11.Size = new System.Drawing.Size(100, 100);
             this.pbMatrix11.TabIndex = 14;
             this.pbMatrix11.TabStop = false;
-            this.pbMatrix11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pbMatrix11.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
-            this.pbMatrix11.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawGameWindow);
+            this.pbMatrix11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix11.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbMatrix11.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
             // 
             // btnNewGame
             // 
@@ -254,6 +254,7 @@
             this.btnNewGame.TabIndex = 13;
             this.btnNewGame.Text = "NOWA GRA";
             this.btnNewGame.UseVisualStyleBackColor = true;
+            this.btnNewGame.Click += new System.EventHandler(this.canvas_NewGame);
             // 
             // btnBack
             // 
@@ -274,6 +275,7 @@
             this.btnPlay.TabIndex = 11;
             this.btnPlay.Text = "GRAJ";
             this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // label1
             // 
@@ -388,9 +390,9 @@
             this.pbTest.Size = new System.Drawing.Size(100, 100);
             this.pbTest.TabIndex = 38;
             this.pbTest.TabStop = false;
-            this.pbTest.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
-            this.pbTest.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
-            this.pbTest.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
+            this.pbTest.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbTest.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbTest.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
             // 
             // pbBlank
             // 
@@ -400,9 +402,9 @@
             this.pbBlank.Size = new System.Drawing.Size(100, 100);
             this.pbBlank.TabIndex = 37;
             this.pbBlank.TabStop = false;
-            this.pbBlank.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
-            this.pbBlank.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
-            this.pbBlank.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
+            this.pbBlank.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbBlank.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbBlank.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
             // 
             // pbCircle
             // 
@@ -412,9 +414,9 @@
             this.pbCircle.Size = new System.Drawing.Size(100, 100);
             this.pbCircle.TabIndex = 36;
             this.pbCircle.TabStop = false;
-            this.pbCircle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
-            this.pbCircle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
-            this.pbCircle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
+            this.pbCircle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbCircle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbCircle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
             // 
             // pbCross
             // 
@@ -424,9 +426,9 @@
             this.pbCross.Size = new System.Drawing.Size(100, 100);
             this.pbCross.TabIndex = 35;
             this.pbCross.TabStop = false;
-            this.pbCross.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
-            this.pbCross.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
-            this.pbCross.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_DrawLearnWindow);
+            this.pbCross.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbCross.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
+            this.pbCross.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_Draw);
             // 
             // label12
             // 
@@ -713,7 +715,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcMatrix33)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMatrix33)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMatrix32)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMatrix31)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMatrix23)).EndInit();
@@ -774,7 +776,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pcMatrix33;
+        private System.Windows.Forms.PictureBox pbMatrix33;
         private System.Windows.Forms.PictureBox pbMatrix32;
         private System.Windows.Forms.PictureBox pbMatrix31;
         private System.Windows.Forms.PictureBox pbMatrix23;

@@ -2,8 +2,8 @@
 {
     enum GameMark
     {
-        Cross,
-        Circle,
-        Blank
+        Cross = 10,
+        Circle = 1,
+        Blank = 0
     }
 }

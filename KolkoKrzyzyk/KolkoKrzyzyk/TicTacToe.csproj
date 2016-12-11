@@ -66,20 +66,21 @@
     <Compile Include="Model\Canvases\BitmapConverter.cs" />
     <Compile Include="Model\Canvases\Canvas.cs" />
     <Compile Include="Model\Canvases\ChromaticImage.cs" />
-    <Compile Include="Model\Canvases\GameCanvasType.cs" />
     <Compile Include="Model\Commands\DrawCircleCommand.cs" />
     <Compile Include="Model\Commands\DrawCrossCommand.cs" />
     <Compile Include="Model\Commands\DrawPointCommand.cs" />
     <Compile Include="Model\Commands\IPainterCommand.cs" />
     <Compile Include="Model\DrawModel\CrossDesignator.cs" />
-    <Compile Include="Model\DrawModel\LearnCanvasContainer.cs" />
+    <Compile Include="Model\DrawModel\CanvasContainer.cs" />
     <Compile Include="Model\GameMark.cs" />
+    <Compile Include="Model\GameModel\Game.cs" />
+    <Compile Include="Model\GameModel\GameState.cs" />
     <Compile Include="Model\NeuralModel\NetworkInput.cs" />
     <Compile Include="Model\LearnModel\NetworkLearning.cs" />
     <Compile Include="Model\NeuralModel\NetworkOutput.cs" />
     <Compile Include="Model\NeuralModel\NetworkTester.cs" />
     <Compile Include="Model\Utility\EnumUtil.cs" />
-    <Compile Include="Model\Canvases\LearnCanvasType.cs" />
+    <Compile Include="Model\Canvases\CanvasType.cs" />
     <Compile Include="View\TicTacToeForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -23,18 +23,14 @@ namespace TicTacToe.Model.NeuralModel
 
             if (netout[0] > 0.6 && netout[1] < 0.1)
             {
-                MessageBox.Show("Krzyżyk");
                 return GameMark.Cross;
-
             }
             else if (netout[0] < 0.1 && netout[1] > 0.6)
             {
-                MessageBox.Show("Kółko");
                 return GameMark.Circle;
             }
             else
             {
-                MessageBox.Show("Pusty");
                 return GameMark.Blank;
             }
         }

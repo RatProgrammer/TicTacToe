@@ -19,6 +19,7 @@ namespace TicTacToe.View
         public event Action TestAction;
         public event Action NewGameAction;
         public event Action PlayAction;
+        public event Action BackAction;
 
         public TicTacToeForm()
         {
@@ -122,6 +123,11 @@ namespace TicTacToe.View
         public void ShowMessage(string message)
         {
             MessageBox.Show(message);
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            BackAction?.Invoke();
         }
     }
 }

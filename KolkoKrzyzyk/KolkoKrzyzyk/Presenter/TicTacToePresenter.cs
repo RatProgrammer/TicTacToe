@@ -22,21 +22,27 @@ namespace TicTacToe.Presenter
         private readonly TicTacToeForm _ticTacToeForm;
         private  readonly CanvasContainer _canvasContainer;
         private ActivationNetwork _network;
-        private BackPropagationLearning _teacher;               
         private IPainterCommand _painterCommand;
-        private Pen _pen;
-        private CrossDesignator _crossDesignator;
+        private readonly Pen _pen;
+        private readonly CrossDesignator _crossDesignator;
         private Game _game;
+        private ComputerPlayer _computerPlayer;
+        private GameUtil _gameUtil;
+        private readonly List<CanvasType> _gameCanvases;
+        private CanvasType _lastModifiedCanvas;
         public TicTacToePresenter(TicTacToeForm ticTacToeForm)
         {
+            _gameCanvases = EnumUtil.GetListOfEnumElement<CanvasType>("Matrix");
             _ticTacToeForm = ticTacToeForm;
             _canvasContainer = new CanvasContainer();
             _network = new ActivationNetwork(new SigmoidFunction(2), 100, 14, 2);
-            _teacher = new BackPropagationLearning(_network);
+            new BackPropagationLearning(_network);
             _pen = new Pen(Color.Black, 5);
             _crossDesignator = new CrossDesignator();
             _network = (ActivationNetwork) Network.Load("Net.bin");
-            _game = new Game();
+            _gameUtil = new GameUtil();
+            _computerPlayer = new ComputerPlayer(_gameUtil ,_gameCanvases);
+            _game = new Game(_gameUtil);
             _ticTacToeForm.DrawAction += Draw;
             _ticTacToeForm.LearnAction += ExecuteLearnAction;
             _ticTacToeForm.CrossAction += ExecuteCrossAction;
@@ -46,55 +52,64 @@ namespace TicTacToe.Presenter
             _ticTacToeForm.TestAction += ExecuteTestAction;
             _ticTacToeForm.NewGameAction += ExecuteNewGameAction;
             _ticTacToeForm.PlayAction += ExecutePlayAction;
-            _game.ComputerPlayerWinAction += ExecuteComputerPlayerWinAction;
-            _game.HumanPlayerWinAction += ExecuteHumanPlayerWinAction;
-            _game.DrawAction += ExecuteGameDrawAction;
-
+            _ticTacToeForm.BackAction += ExecuteBackAction;
+            _lastModifiedCanvas = CanvasType.None;
 
         }
 
-        private void ExecuteGameDrawAction()
+        private void ExecuteBackAction()
         {
-            _ticTacToeForm.ShowMessage("Draw");
+            _canvasContainer.ClearCanvas(_lastModifiedCanvas);
+            UpdateCanvasView(_lastModifiedCanvas);
         }
 
-        private void ExecuteHumanPlayerWinAction()
+        private void GameInfo(string message)
         {
-            _ticTacToeForm.ShowMessage("You win");
-        }
-
-        private void ExecuteComputerPlayerWinAction()
-        {
-            _ticTacToeForm.ShowMessage("You lost");
+            _ticTacToeForm.ShowMessage(message);
+            ExecuteNewGameAction();
         }
 
         private void ExecutePlayAction()
         {
-            var list = EnumUtil.GetListOfEnumElement<CanvasType>("Matrix");
-            NetworkTester networkTester = new NetworkTester(_network);
-            List<GameMark> result = new List<GameMark>();
-            foreach (var canvasType in list)
-            {
-                var canvas = _canvasContainer.GetCanvas(canvasType);;
-                double[] chromaticCanvas = BitmapConverter.ImageToByte(canvas.GetBitmap());
-                result.Add(networkTester.Test(chromaticCanvas));
-            }
-            
-            var gameResult = _game.CheckGame(result.Select(x => (int)x).ToArray());
-            if (gameResult > -1)
-            {
-                var matrix = list.ElementAt(gameResult);
-                _painterCommand = new DrawCrossCommand(_pen, _crossDesignator);
-                _canvasContainer.DrawOnCanvas(matrix, _painterCommand);
-                UpdateCanvasView(matrix);
-            }
+            var borad = PrepareBoard();
+            var move = _computerPlayer.PerformMove(borad);
+            _canvasContainer.DrawOnCanvas(move, new DrawCrossCommand(_pen, _crossDesignator));
+            UpdateCanvasView(move);
+            PrepareBoard();
+        }
 
+        private int[] PrepareBoard()
+        {
+            NetworkTester networkTester = new NetworkTester(_network);
+            List<GameMark> listOfGameMarks = new List<GameMark>();
+            foreach (var canvasType in _gameCanvases)
+            {
+                var canvas = _canvasContainer.GetCanvas(canvasType);
+                ;
+                double[] chromaticCanvas = BitmapConverter.ImageToByte(canvas.GetBitmap());
+                listOfGameMarks.Add(networkTester.Test(chromaticCanvas));
+            }
+            var borad = listOfGameMarks.Select(x => (int) x).ToArray();
+            var winner = _game.CheckWhoWon(borad);
+            switch (winner)
+            {
+                case GameResult.Draw:
+                    GameInfo("Draw");
+                    break;
+                case GameResult.CirclePlayerWon:
+                    GameInfo("Circle player won");
+                    break;
+                case GameResult.CrossPlayerWon:
+                    GameInfo("Cross player won");
+                    break;
+            }
+            return borad;
         }
 
         private void ExecuteNewGameAction()
         {
-            var list = EnumUtil.GetListOfEnumElement<CanvasType>("Matrix");
-            foreach (var canvasType in list)
+            
+            foreach (var canvasType in _gameCanvases)
             {
                 _canvasContainer.ClearCanvas(canvasType);
                 UpdateCanvasView(canvasType);
@@ -103,6 +118,7 @@ namespace TicTacToe.Presenter
 
         private void Draw(Point point, CanvasType canvasType)
         {
+            _lastModifiedCanvas = canvasType;
             _painterCommand = new DrawPointCommand(point, _pen);
             _canvasContainer.DrawOnCanvas(canvasType, _painterCommand);
             UpdateCanvasView(canvasType);

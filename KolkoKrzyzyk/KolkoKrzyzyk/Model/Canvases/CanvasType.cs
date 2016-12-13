@@ -2,6 +2,7 @@
 {
     public enum CanvasType
     {
+        None,
         Cross,
         Circle,
         Blank,

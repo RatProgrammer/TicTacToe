@@ -74,7 +74,9 @@
     <Compile Include="Model\DrawModel\CanvasContainer.cs" />
     <Compile Include="Model\GameMark.cs" />
     <Compile Include="Model\GameModel\Game.cs" />
+    <Compile Include="Model\GameModel\GameResult.cs" />
     <Compile Include="Model\GameModel\GameState.cs" />
+    <Compile Include="Model\GameModel\GameUtil.cs" />
     <Compile Include="Model\NeuralModel\NetworkInput.cs" />
     <Compile Include="Model\LearnModel\NetworkLearning.cs" />
     <Compile Include="Model\NeuralModel\NetworkOutput.cs" />

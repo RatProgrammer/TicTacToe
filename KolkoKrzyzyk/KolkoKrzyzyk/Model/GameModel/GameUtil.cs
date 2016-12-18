@@ -26,7 +26,7 @@ namespace TicTacToe.Model.GameModel
         }
 
 
-        public int[] GetSumOfWinningLines(int[] board)
+        public int[] GetSumOfWinningLines(GameMark[] board)
         {
             int sum = 0;
             for (int i = 0; i < _lineStates.Length; i++)
@@ -34,7 +34,7 @@ namespace TicTacToe.Model.GameModel
                 _lineStates[i] = 0;
                 for (int j = 0; j < _boardWinningLines[i].Length; j++)
                 {
-                    sum += board[_boardWinningLines[i][j]];
+                    sum += (int)board[_boardWinningLines[i][j]];
                 }
                 _lineStates[i] = sum;
 

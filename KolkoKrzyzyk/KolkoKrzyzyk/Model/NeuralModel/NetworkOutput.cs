@@ -18,9 +18,7 @@
                 new double[] {1, 0}, //cross
                 new double[] {1, 0}, //cross
                 new double[] {1, 0}, //cross
-                //new double[] {0, 0}, //blank
                 new double[] {0, 0}, //blank
-                //new double[] {0, 0}, //blank
                 new double[] {0, 1}, //circle
                 new double[] {0, 1}, //circle
                 new double[] {0, 1}, //circle

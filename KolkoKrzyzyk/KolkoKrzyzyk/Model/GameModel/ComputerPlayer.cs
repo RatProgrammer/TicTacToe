@@ -3,22 +3,31 @@ using TicTacToe.Model.Canvases;
 
 namespace TicTacToe.Model.GameModel
 {
-    class ComputerPlayer
+    public class ComputerPlayer
     {
         private GameUtil _gameUtil;
         private List<CanvasType> _canvasTypes;
         private int[] _state;
+        private GameMark _computerMark;
 
         public ComputerPlayer(GameUtil gameUtil, List<CanvasType> canvasTypes)
         {
             _gameUtil = gameUtil;
             _canvasTypes = canvasTypes;
             _state = new int[9];
+            _computerMark = GameMark.Cross;
         }
 
-        public CanvasType PerformMove(int[] board)
+        public GameMark ComputerMark
         {
-            var winningProbability = _gameUtil.GetSumOfWinningLines(board);
+            get { return _computerMark; }
+            set { _computerMark = value; }
+        }
+
+        public CanvasType PerformMove(GameBoard board)
+        {
+            var boardValues = board.GetBoardValues();
+            var winningProbability = _gameUtil.GetSumOfWinningLines(boardValues);
             for (int i = 0; i < winningProbability.Length; i++)
             {
                 switch ((GameState)winningProbability[i])
@@ -57,7 +66,7 @@ namespace TicTacToe.Model.GameModel
             int field = -3;
             for (int i = 0; i < _state.Length; i++)
             {
-                if (_state[i] > max && board[i] == 0)
+                if (_state[i] > max && boardValues[i] == 0)
                 {
                     max = _state[i];
                     field = i;

@@ -1,6 +1,6 @@
 ﻿namespace TicTacToe.Model
 {
-    enum GameMark
+    public enum GameMark
     {
         Cross = 10,
         Circle = 1,

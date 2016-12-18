@@ -70,10 +70,13 @@
     <Compile Include="Model\Commands\DrawCrossCommand.cs" />
     <Compile Include="Model\Commands\DrawPointCommand.cs" />
     <Compile Include="Model\Commands\IPainterCommand.cs" />
+    <Compile Include="Model\Commands\NullObjectCommand.cs" />
+    <Compile Include="Model\Commands\PaintFactory.cs" />
     <Compile Include="Model\DrawModel\CrossDesignator.cs" />
     <Compile Include="Model\DrawModel\CanvasContainer.cs" />
     <Compile Include="Model\GameMark.cs" />
     <Compile Include="Model\GameModel\Game.cs" />
+    <Compile Include="Model\GameModel\GameBoard.cs" />
     <Compile Include="Model\GameModel\GameResult.cs" />
     <Compile Include="Model\GameModel\GameState.cs" />
     <Compile Include="Model\GameModel\GameUtil.cs" />

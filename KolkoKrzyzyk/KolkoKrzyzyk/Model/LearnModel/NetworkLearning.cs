@@ -1,10 +1,7 @@
 ﻿using System.Windows.Forms;
 using AForge.Neuro;
 using AForge.Neuro.Learning;
-using TicTacToe.Model.Canvases;
-using TicTacToe.Model.DrawModel;
 using TicTacToe.Model.NeuralModel;
-using TicTacToe.View;
 
 namespace TicTacToe.Model.LearnModel
 {

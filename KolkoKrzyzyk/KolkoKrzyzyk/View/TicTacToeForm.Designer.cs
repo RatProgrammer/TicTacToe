@@ -43,10 +43,6 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nEWGAMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.qUITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lbInformation = new System.Windows.Forms.Label();
             this.pbResult = new System.Windows.Forms.PictureBox();
@@ -92,7 +88,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbMatrix13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMatrix12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMatrix11)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTest)).BeginInit();
@@ -128,14 +123,13 @@
             this.tabPage1.Controls.Add(this.btnBack);
             this.tabPage1.Controls.Add(this.btnPlay);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.menuStrip1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(492, 425);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "GRA";
+            this.tabPage1.Text = "GAME";
             // 
             // pbMatrix33
             // 
@@ -252,7 +246,7 @@
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(75, 24);
             this.btnNewGame.TabIndex = 13;
-            this.btnNewGame.Text = "NOWA GRA";
+            this.btnNewGame.Text = "NEW GAME";
             this.btnNewGame.UseVisualStyleBackColor = true;
             this.btnNewGame.Click += new System.EventHandler(this.canvas_NewGame);
             // 
@@ -263,7 +257,7 @@
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 24);
             this.btnBack.TabIndex = 12;
-            this.btnBack.Text = "COFNIJ";
+            this.btnBack.Text = "BACK";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
@@ -274,7 +268,7 @@
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(75, 24);
             this.btnPlay.TabIndex = 11;
-            this.btnPlay.Text = "GRAJ";
+            this.btnPlay.Text = "PLAY";
             this.btnPlay.UseVisualStyleBackColor = true;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
@@ -285,42 +279,9 @@
             this.label1.Location = new System.Drawing.Point(133, 26);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(205, 33);
+            this.label1.Size = new System.Drawing.Size(167, 33);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Kółko- krzyżyk";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(2, 2);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(488, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nEWGAMEToolStripMenuItem,
-            this.qUITToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // nEWGAMEToolStripMenuItem
-            // 
-            this.nEWGAMEToolStripMenuItem.Name = "nEWGAMEToolStripMenuItem";
-            this.nEWGAMEToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.nEWGAMEToolStripMenuItem.Text = "NEW GAME";
-            // 
-            // qUITToolStripMenuItem
-            // 
-            this.qUITToolStripMenuItem.Name = "qUITToolStripMenuItem";
-            this.qUITToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.qUITToolStripMenuItem.Text = "QUIT";
+            this.label1.Text = "Tic-Tac-Toe";
             // 
             // tabPage2
             // 
@@ -364,7 +325,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(492, 425);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "NAUKA";
+            this.tabPage2.Text = "LEARN";
             // 
             // lbInformation
             // 
@@ -615,7 +576,7 @@
             this.btCoppyBlank.Name = "btCoppyBlank";
             this.btCoppyBlank.Size = new System.Drawing.Size(101, 21);
             this.btCoppyBlank.TabIndex = 9;
-            this.btCoppyBlank.Text = "Coppy To Blank";
+            this.btCoppyBlank.Text = "Copy To Blank";
             this.btCoppyBlank.UseVisualStyleBackColor = true;
             this.btCoppyBlank.Click += new System.EventHandler(this.btnCoppy_Click);
             // 
@@ -626,7 +587,7 @@
             this.btnCoppyCircle.Name = "btnCoppyCircle";
             this.btnCoppyCircle.Size = new System.Drawing.Size(97, 21);
             this.btnCoppyCircle.TabIndex = 8;
-            this.btnCoppyCircle.Text = "Coppy To Circle";
+            this.btnCoppyCircle.Text = "Copy To Circle";
             this.btnCoppyCircle.UseVisualStyleBackColor = true;
             this.btnCoppyCircle.Click += new System.EventHandler(this.btnCoppy_Click);
             // 
@@ -637,7 +598,7 @@
             this.btnCoppyCross.Name = "btnCoppyCross";
             this.btnCoppyCross.Size = new System.Drawing.Size(100, 21);
             this.btnCoppyCross.TabIndex = 7;
-            this.btnCoppyCross.Text = "Coppy To Cross";
+            this.btnCoppyCross.Text = "Copy To Cross";
             this.btnCoppyCross.UseVisualStyleBackColor = true;
             this.btnCoppyCross.Click += new System.EventHandler(this.btnCoppy_Click);
             // 
@@ -700,9 +661,9 @@
             this.lblNaukaWzorow.Location = new System.Drawing.Point(118, 4);
             this.lblNaukaWzorow.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNaukaWzorow.Name = "lblNaukaWzorow";
-            this.lblNaukaWzorow.Size = new System.Drawing.Size(210, 33);
+            this.lblNaukaWzorow.Size = new System.Drawing.Size(198, 33);
             this.lblNaukaWzorow.TabIndex = 0;
-            this.lblNaukaWzorow.Text = "Nauka Wzorów";
+            this.lblNaukaWzorow.Text = "Mark learning";
             // 
             // TicTacToeForm
             // 
@@ -712,7 +673,7 @@
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TicTacToeForm";
-            this.Text = "Kółko- krzyżyk";
+            this.Text = "Tic-Tac-Toe";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -725,8 +686,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbMatrix13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMatrix12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMatrix11)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbResult)).EndInit();
@@ -746,10 +705,6 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nEWGAMEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem qUITToolStripMenuItem;
         private System.Windows.Forms.Button btnCleanBlank;
         private System.Windows.Forms.Button btnCleanCircle;
         private System.Windows.Forms.Button btnCleanCross;

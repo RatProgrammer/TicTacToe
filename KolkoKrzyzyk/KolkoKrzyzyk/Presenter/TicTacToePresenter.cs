@@ -154,7 +154,7 @@ namespace TicTacToe.Presenter
 
         private void ExecuteLearnAction()
         { 
-            _ticTacToeForm.UpdateInformationLabel("Trwa nauka. \n Proszę czekać.");
+            _ticTacToeForm.UpdateInformationLabel("Learning in progress. \n Please wait.");
             LoadNetworkFromFile();
             NetworkLearning networkLearning = new NetworkLearning();
             var crossInput = PreaperNetworkInput(CanvasType.Cross);

@@ -26,7 +26,7 @@ namespace TicTacToe.Model.LearnModel
             }
 
             network.Save("Net.bin");
-            MessageBox.Show("Skończona nauka");
+            MessageBox.Show("Learning finished");
         }
     }
 }

@@ -67,27 +67,40 @@ namespace TicTacToe.Presenter
         private void GameInfo(string message)
         {
             _ticTacToeForm.ShowMessage(message);
-            ExecuteNewGameAction();
         }
 
         private void ExecutePlayAction()
         {
-            PrepareBoard();
-            CheckGame();
-            var move = _game.ExecuteComputerPlayerMove();
-            var computerMark = _game.GetComputerMark();
-            _canvasContainer.DrawOnCanvas(move, _paintFactory.GetPainter(computerMark));
-            UpdateCanvasView(move);
-            CheckGame();
+            var result = PrepareBoard();
+            if (result)
+            {
+                CheckGame();
+                var move = _game.ExecuteComputerPlayerMove();
+                var computerMark = _game.GetComputerMark();
+                _canvasContainer.DrawOnCanvas(move, _paintFactory.GetPainter(computerMark));
+                UpdateCanvasView(move);
+                CheckGame();
+            }
         }
 
-        private void PrepareBoard()
+        private bool PrepareBoard()
         {
+            var humanCanvas = _lastModifiedCanvas;
             NetworkTester networkTester = new NetworkTester(_network);
-            var canvas = _canvasContainer.GetCanvas(_lastModifiedCanvas);
+            var canvas = _canvasContainer.GetCanvas(humanCanvas);
             var humanMark = networkTester.Test(BitmapConverter.ImageToByte(canvas.GetBitmap()));
-            _game.SetComputerMark(humanMark);
-            _game.UpdateBoard(_lastModifiedCanvas, humanMark);
+            if (humanMark == GameMark.Blank)
+            {
+                GameInfo("Try again");
+                _canvasContainer.ClearCanvas(humanCanvas);
+                UpdateCanvasView(humanCanvas);
+                return false;
+            }
+                _game.SetComputerMark(humanMark);
+
+                _game.UpdateBoard(humanCanvas, humanMark);
+            return true;
+
         }
 
         private void CheckGame()
@@ -98,12 +111,15 @@ namespace TicTacToe.Presenter
             {
                 case GameResult.Draw:
                     GameInfo("Draw");
+                    ExecuteNewGameAction();
                     break;
                 case GameResult.CirclePlayerWon:
                     GameInfo("Circle player won");
+                    ExecuteNewGameAction();
                     break;
                 case GameResult.CrossPlayerWon:
                     GameInfo("Cross player won");
+                    ExecuteNewGameAction();
                     break;
             }
         }

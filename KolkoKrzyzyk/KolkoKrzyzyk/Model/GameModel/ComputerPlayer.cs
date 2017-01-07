@@ -7,7 +7,7 @@ namespace TicTacToe.Model.GameModel
     {
         private GameUtil _gameUtil;
         private List<CanvasType> _canvasTypes;
-        private int[] _state;
+        private int[] _state; 
         private GameMark _computerMark;
 
         public ComputerPlayer(GameUtil gameUtil, List<CanvasType> canvasTypes)
